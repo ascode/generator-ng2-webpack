@@ -1,6 +1,8 @@
 [![NPM](https://nodei.co/npm/generator-ng2-webpack.png)](https://npmjs.org/package/generator-ng2-webpack)
 
 # generator-ng2-webpack
+
+[![Join the chat at https://gitter.im/cmelion/generator-ng2-webpack](https://badges.gitter.im/cmelion/generator-ng2-webpack.svg)](https://gitter.im/cmelion/generator-ng2-webpack?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 An opinionated [Yeoman](http://yeoman.io) generator for scaffolding an app using angular2 and webpack
 
 # Credits
