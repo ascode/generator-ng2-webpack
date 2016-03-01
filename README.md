@@ -1,5 +1,5 @@
 # generator-ng2-webpack
-A [Yeoman](http://yeoman.io) generator for scaffolding an app using angular2 and webpack
+An opinionated [Yeoman](http://yeoman.io) generator for scaffolding an app using angular2 and webpack
 
 # Credits
 This generator was inspired by: 
