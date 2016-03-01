@@ -93,7 +93,7 @@ module.exports = function makeWebpackConfig() {
             {
                 test: /\.async\.ts$/,
                 loaders: ['es6-promise-loader', 'ts-loader'],
-                exclude: [ /\.(spec|e2e)\.ts$/ ]
+                exclude: [!isTestEnv ? /\.(spec|e2e)\.ts$/ : /\.async\.ts$/, /\.(spec|e2e)\.ts$/]
             },
 
             // Support for .ts files.
