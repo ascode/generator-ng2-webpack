@@ -1,4 +1,4 @@
-
+[![NPM](https://nodei.co/npm/generator-ng2-webpack.png)](https://npmjs.org/package/generator-ng2-webpack)
 
 # generator-ng2-webpack
 An opinionated [Yeoman](http://yeoman.io) generator for scaffolding an app using angular2 and webpack
