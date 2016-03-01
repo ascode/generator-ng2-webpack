@@ -1,249 +1,315 @@
-'use strict';
+// Helper: root(), and rootDir() are defined at the bottom
 var path = require('path');
-var fs = require('fs');
 var webpack = require('webpack');
+
+// Webpack Plugins
 var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
-var HtmlwebpackPlugin = require('html-webpack-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-var PostCompilePlugin = require('./plugins/PostCompilePlugin');
 var autoprefixer = require('autoprefixer');
-var DEFAULT_TARGET = 'app';
-var target = process.env.TARGET || DEFAULT_TARGET;
-var port = process.env.PORT || 5000;
-var host = process.env.HOST || 'localhost';
-var mode = process.env.MODE || 'dev';
-var clientFolder = require('./.yo-rc.json')['generator-mcfly-ng2'].clientFolder;
-var distFolder = path.join('dist', target, mode);
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
-var fileExistsSync = function(file) {
-    try {
-        fs.accessSync(file);
-        return true;
-    } catch (e) {
-        return false;
+
+/**
+ * Env
+ * Get npm lifecycle event to identify the environment
+ */
+var ENV = process.env.npm_lifecycle_event;
+
+module.exports = function makeWebpackConfig() {
+    /**
+     * Config
+     * Reference: http://webpack.github.io/docs/configuration.html
+     * This is the object where all configuration gets set
+     */
+    var config = {};
+    var isTestEnv = ENV === 'test' || ENV === 'test-watch';
+
+    /**
+     * Devtool
+     * Reference: http://webpack.github.io/docs/configuration.html#devtool
+     * Type of sourcemap to use per build type
+     */
+    if (isTestEnv) {
+        config.devtool = 'inline-source-map';
+    } else if (ENV === 'build') {
+        config.devtool = 'source-map';
+    } else {
+        config.devtool = 'eval-source-map';
     }
-};
 
-var isTargetFuse = function(target) {
-    return fileExistsSync(path.join(clientFolder, target, 'index.ux'));
-};
-// make sure the target exists
-if (!fileExistsSync(path.join(clientFolder, target))) {
-    var error = 'The target ' + target + ' does not exist';
-    throw error;
-}
+    // add debug messages
+    config.debug = ENV !== 'build' || !isTestEnv;
 
-//var targetToSuffix = function(targetname) {
-//    return targetname === DEFAULT_TARGET ? '' : '-' + targetname;
-//};
-//var suffix = targetToSuffix(target);
-var pluginsProd = mode === 'prod' ? [
-    //new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-        minimize: true,
-        mangle: false,
-        output: {
-            comments: false
-        },
-        compress: {
-            warnings: false
+    /**
+     * Entry
+     * Reference: http://webpack.github.io/docs/configuration.html#entry
+     */
+    config.entry = isTestEnv ? {} : {
+        'vendor': './src/vendor.ts',
+        'app': './src/bootstrap.ts' // our angular app
+    };
+
+    /**
+     * Output
+     * Reference: http://webpack.github.io/docs/configuration.html#output
+     */
+    config.output = isTestEnv ? {} : {
+        path: root('dist'),
+        publicPath: '/',
+        filename: ENV === 'build' ? 'js/[name].[hash].js' : 'js/[name].js',
+        chunkFilename: ENV === 'build' ? '[id].[hash].chunk.js' : '[id].chunk.js'
+    };
+
+    /**
+     * Resolve
+     * Reference: http://webpack.github.io/docs/configuration.html#resolve
+     */
+    config.resolve = {
+        cache: !isTestEnv,
+        root: root(),
+        // only discover files that have those extensions
+        extensions: prepend(['.ts','.js','.json','.css', '.scss', '.html'], '.async'), // ensure .async.ts etc also works
+        alias: {
+            'app': 'src/app',
+            'common': 'src/common'
         }
-    })
-] : [];
+    };
 
-module.exports = {
-    devtool: mode === 'prod' ? 'source-map' : 'eval-source-map', //'eval-source-map',
-    debug: true,
-    cache: true,
-    context: path.resolve(path.join(clientFolder, target)), // the base directory for resolving the entry option
-    entry: {
-        'vendor': './vendor', // clientFolder + target  + '/vendor', // path.resolve(path.join('.', clientFolder, 'scripts', target, 'vendor')),
-        'bundle': './bootstrap' //clientFolder + target  + '/bootstrap',  // path.resolve(path.join('.', clientFolder, 'scripts', target, 'bootstrap'))
-    },
-
-    output: {
-        path: path.resolve(distFolder),
-
-        filename: '[name].js',
-        sourceMapFilename: '[name].js.map',
-        chunkFilename: '[id].chunk.js',
-        //devtoolModuleFilenameTemplate: function(info) {
-        //return 'app' + info.resourcePath.replace(__dirname, '../..').replace(/~/g, '/node_modules/');
-        //return info.resourcePath.replace(clientFolder, '').replace(/~/g, '/node_modules/');
-        //},
-        devtoolFallbackModuleFilenameTemplate: '[absolute-resource-path]'
-    },
-
-    resolve: {
-        extensions: ['', '.ts', '.js', '.json', '.css', '.html', '.scss', '.sass']
-    },
-    postcss: function() {
-        return [autoprefixer];
-    },
-    module: {
-        preLoaders: [{
-            test: /\.ts$/,
-            loader: 'tslint-loader',
-            exclude: [/node_modules/]
-        }],
+    /**
+     * Loaders
+     * Reference: http://webpack.github.io/docs/configuration.html#module-loaders
+     * List: http://webpack.github.io/docs/list-of-loaders.html
+     * This handles most of the magic responsible for converting modules
+     */
+    config.module = {
+        preLoaders: isTestEnv ? [] : [{test: /\.ts$/, loader: 'tslint'}],
         loaders: [
-            // A special ts loader case for node_modules so we can ignore errors
+
+            // Support Angular 2 async routes via .async.ts
+            {
+                test: /\.async\.ts$/,
+                loaders: ['es6-promise-loader', 'ts-loader'],
+                exclude: [ /\.(spec|e2e)\.ts$/ ]
+            },
+
+            // Support for .ts files.
             {
                 test: /\.ts$/,
                 loader: 'ts',
-                include: [/node_modules/],
                 query: {
-                    instance: 'node_modules',
-                    ignoreDiagnostics: [2339]
-                }
-            }, {
-                test: /\.ts$/,
-                loader: 'ts',
-                include: [new RegExp(clientFolder), /test/, /fuse/],
-                query: {
-                    instance: 'client'
-                }
+                    'ignoreDiagnostics': [
+                        2300, // 2300 -> Duplicate identifier
+                        2339, // 2339 -> Property 'decorate' does not exist on type 'typeof Reflect'
+                        2364, // 2364 -> Invalid left-hand side of assignment expression
+                        2374, // 2374 -> Duplicate number index signature
+                        2375, // 2375 -> Duplicate string index signature
+                        2403, // 2403 -> Subsequent variable declarations
+                        2502  // 2502 -> Referenced directly or indirectly
+                    ]
+                },
+                exclude: [isTestEnv ? /\.(e2e)\.ts$/ : /\.(spec|e2e)\.ts$/, /node_modules\/(?!(ng2-.+))/]
             },
-            // Support for ngux files
-            {
-                test: /\.ngux$/,
-                loader: 'html-loader!ngux-loader?subdir=ngux'
-            },
+
+            // copy those assets to output
+            {test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/, loader: 'file?name=[path][name].[ext]?[hash]'},
+
             // Support for *.json files.
-            {
-                test: /\.json$/,
-                loader: 'json-loader'
-            },
-            // Support for CSS as raw text in client folder
-            {
-                test: /\.css$/,
-                loader: 'css-loader!postcss-loader',
-                include: [new RegExp(clientFolder)]
-            },
-            // Support for CSS as injected style in node_module folder
+            {test: /\.json$/, loader: 'json'},
+
+            // Support for CSS as raw text
+            // use 'null' loader in test mode (https://github.com/webpack/null-loader)
+            // all css in src/style will be bundled in an external css file
             {
                 test: /\.css$/,
-                loader: 'style-loader!css-loader!postcss-loader',
-                include: [/node_modules/]
+                exclude: root('src', 'app'),
+                loader: isTestEnv ? 'null' : ExtractTextPlugin.extract('style', 'css?sourceMap!postcss')
             },
-            // Support for SCSS as raw text in client folder
+            // all css required in src/app files will be merged in js files
+            {test: /\.css$/, include: root('src', 'app'), loader: 'raw!postcss'},
+
+            // support for .scss files
+            // use 'null' loader in test mode (https://github.com/webpack/null-loader)
+            // all css in src/style will be bundled in an external css file
             {
                 test: /\.scss$/,
-                loader: 'css-loader!postcss-loader!sass-loader?sourceMap',
-                cacheable: true,
-                include: [new RegExp(clientFolder)]
+                exclude: root('src', 'app'),
+                loader: isTestEnv ? 'null' : ExtractTextPlugin.extract('style', 'css?sourceMap!postcss!sass')
             },
-            // Support for SCSS as inject style in node_module folder
-            {
-                test: /\.scss$/,
-                loader: 'style-loader!css-loader!postcss-loader!sass-loader?sourceMap',
-                cacheable: true,
-                include: [/node_modules/]
-            },
-            // Support for SCSS as raw text in client folder
-            {
-                test: /\.sass$/,
-                // Passing indentedSyntax query param to node-sass
-                loader: 'css-loader!postcss-loader!sass-loader?indentedSyntax&sourceMap',
-                cacheable: true,
-                include: [new RegExp(clientFolder)]
-            },
-            // Support for SCSS as inject style in node_module folder
-            {
-                test: /\.sass$/,
-                // Passing indentedSyntax query param to node-sass
-                loader: 'style-loader!css-loader!postcss-loader!sass-loader?indentedSyntax&sourceMap',
-                cacheable: true,
-                include: [/node_modules/]
-            },
+            // all css required in src/app files will be merged in js files
+            {test: /\.scss$/, exclude: root('src', 'style'), loader: 'raw!postcss!sass'},
+
             // support for .html as raw text
-            {
-                test: /\.html$/,
-                loader: 'html-loader??interpolate&-minimize',
-                exclude: [new RegExp(clientFolder + target + '/index.html')]
-            }, {
-                test: /\.png$/,
-                loader: 'url-loader?name=images/[hash].[ext]&prefix=img/&limit=5000'
-            }, {
-                test: /\.jpg$/,
-                loader: 'url-loader?name=images/[hash].[ext]&prefix=img/&limit=5000'
-            }, {
-                test: /\.gif$/,
-                loader: 'url-loader?name=images/[hash].[ext]&prefix=img/&limit=5000'
-            }, {
-                test: /\.woff$/,
-                loader: 'url-loader?name=fonts/[hash].[ext]&prefix=font/&limit=5000'
-            }, {
-                test: /\.woff2$/,
-                loader: 'url-loader?name=fonts/[hash].[ext]&prefix=font/&limit=5000'
-            }, {
-                test: /\.eot$/,
-                loader: 'file-loader?name=fonts/[hash].[ext]&prefix=font/'
-            }, {
-                test: /\.ttf$/,
-                loader: 'file-loader?name=fonts/[hash].[ext]&prefix=font/'
-            }, {
-                test: /\.svg$/,
-                loader: 'file-loader?name=fonts/[hash].[ext]&prefix=font/'
-            }
+            // todo: change the loader to something that adds a hash to images
+            {test: /\.html$/, loader: 'raw'}
         ],
-        noParse: [
-            /zone\.js\/dist\/zone-microtask\.js/,
-            /zone\.js\/dist\/long-stack-trace-zone\.js/,
-            /zone\.js\/dist\/jasmine-patch\.js/,
-            /es6-shim/,
-            /reflect-metadata/,
-            /web-animations/,
-            /.+angular2\/bundles\/.+/
-        ]
-    },
-    tslint: {
+        postLoaders: [],
+        noParse: [/.+zone\.js\/dist\/.+/, /.+angular2\/bundles\/.+/, /angular2-polyfills\.js/]
+    };
+
+    if (isTestEnv) {
+        // instrument only testing sources with Istanbul, covers js compiled files for now :-/
+        config.module.postLoaders.push({
+            test: /\.(js|ts)$/,
+            include: path.resolve('src'),
+            loader: 'istanbul-instrumenter-loader',
+            exclude: [/\.spec\.ts$/, /\.e2e\.ts$/, /node_modules/]
+        })
+    }
+
+    /**
+     * Plugins
+     * Reference: http://webpack.github.io/docs/configuration.html#plugins
+     * List: http://webpack.github.io/docs/list-of-plugins.html
+     */
+    config.plugins = [
+        // Define env variables to help with builds
+        // Reference: https://webpack.github.io/docs/list-of-plugins.html#defineplugin
+        new webpack.DefinePlugin({
+            // Environment helpers
+            'process.env': {
+                ENV: JSON.stringify(ENV)
+            }
+        })
+    ];
+
+
+    if (!isTestEnv) {
+        config.plugins.push(
+            // Generate common chunks if necessary
+            // Reference: https://webpack.github.io/docs/code-splitting.html
+            // Reference: https://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin
+            new CommonsChunkPlugin({
+                name: 'vendor',
+                filename: ENV === 'build' ? 'js/[name].[hash].js' : 'js/[name].js',
+                minChunks: Infinity
+            }),
+            new CommonsChunkPlugin({
+                name: 'common',
+                filename: ENV === 'build' ? 'js/[name].[hash].js' : 'js/[name].js',
+                minChunks: 2,
+                chunks: ['app', 'vendor']
+            }),
+
+            // Inject script and link tags into html files
+            // Reference: https://github.com/ampedandwired/html-webpack-plugin
+            new HtmlWebpackPlugin({
+                template: './src/public/index.html',
+                inject: 'body',
+                chunksSortMode: function compare(a, b) {
+                    // common always first
+                    if (a.names[0] === 'common') {
+                        return -1;
+                    }
+                    // app always last
+                    if (a.names[0] === 'app') {
+                        return 1;
+                    }
+                    // vendor before app
+                    if (a.names[0] === 'vendor' && b.names[0] === 'app') {
+                        return -1;
+                    } else {
+                        return 1;
+                    }
+                    // a must be equal to b
+                    return 0;
+                }
+            }),
+
+            // Extract css files
+            // Reference: https://github.com/webpack/extract-text-webpack-plugin
+            // Disabled when in test mode or not in build mode
+            new ExtractTextPlugin('css/[name].[hash].css', {disable: ENV !== 'build'})
+        );
+    }
+
+    // Add build specific plugins
+    if (ENV === 'build') {
+        config.plugins.push(
+            // Reference: http://webpack.github.io/docs/list-of-plugins.html#noerrorsplugin
+            // Only emit files when there are no errors
+            new webpack.NoErrorsPlugin(),
+
+            // Reference: http://webpack.github.io/docs/list-of-plugins.html#dedupeplugin
+            // Dedupe modules in the output
+            new webpack.optimize.DedupePlugin(),
+
+            // Reference: http://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
+            // Minify all javascript, switch loaders to minimizing mode
+            new webpack.optimize.UglifyJsPlugin({
+                // Angular 2 is broken again, disabling mangle until beta 6 that should fix the thing
+                // Todo: remove this with beta 6
+                mangle: false
+            }),
+
+            // Copy assets from the public folder
+            // Reference: https://github.com/kevlened/copy-webpack-plugin
+            new CopyWebpackPlugin([{
+                from: root('src/public')
+            }])
+        );
+    }
+
+    /**
+     * PostCSS
+     * Reference: https://github.com/postcss/autoprefixer-core
+     * Add vendor prefixes to your css
+     */
+    config.postcss = [
+        autoprefixer({
+            browsers: ['last 2 version']
+        })
+    ];
+
+    /**
+     * Sass
+     * Reference: https://github.com/jtangelder/sass-loader
+     * Transforms .scss files to .css
+     */
+    config.sassLoader = {
+        //includePaths: [path.resolve(__dirname, "node_modules/foundation-sites/scss")]
+    };
+
+    /**
+     * Apply the tslint loader as pre/postLoader
+     * Reference: https://github.com/wbuchwalter/tslint-loader
+     */
+    config.tslint = {
         emitErrors: false,
         failOnHint: false
-    },
-    devServer: {
+    };
+
+    /**
+     * Dev server configuration
+     * Reference: http://webpack.github.io/docs/configuration.html#devserver
+     * Reference: http://webpack.github.io/docs/webpack-dev-server.html
+     */
+    config.devServer = {
+        contentBase: './src/public',
         historyApiFallback: true,
-        hot: true,
-        inline: true,
-        progress: true,
-        // Display only errors to reduce the amount of output.
-        stats: 'errors-only',
-        // Parse host and port from env so this is easy to customize.
-        host: host,
-        port: port
-    },
-    plugins: [
-        // make sure we can import the chunks on node or fuse
-        new webpack.BannerPlugin(
-            'if (typeof window === "undefined") {window = global;}\n' +
-            'if (typeof window["webpackJsonp"]) {webpackJsonp = window.webpackJsonp;}\n', {
-                raw: true,
-                entryOnly: true
-            }),
-        new CommonsChunkPlugin({
-            name: 'vendor',
-            filename: 'vendor.js',
-            minChunks: Infinity
-        }),
-        new CommonsChunkPlugin({
-            name: 'common',
-            filename: 'common.js',
-            minChunks: 2,
-            chunks: ['bundle', 'vendor']
-        }),
-        new HtmlwebpackPlugin({
-            title: 'App - ' + target,
-            baseUrl: '/',
-            template: 'index.html',
-            inject: 'body'
-        }),
-        new CopyWebpackPlugin([{
-            from: 'index.!(html)'
-        }].concat(isTargetFuse(target) ? [{
-            from: './*/**/*.ux'
-        }] : [])),
-        new PostCompilePlugin({
-            filename: path.join(distFolder, 'bundle.js')
-        })
-    ].concat(pluginsProd)
-};
+        stats: 'minimal' // none (or false), errors-only, minimal, normal (or true) and verbose
+    };
+
+    return config;
+}();
+
+// Helper functions
+function root(args) {
+    args = Array.prototype.slice.call(arguments, 0);
+    return path.join.apply(path, [__dirname].concat(args));
+}
+
+function prepend(extensions, args) {
+    args = args || [];
+    if (!Array.isArray(args)) { args = [args] }
+    return extensions.reduce(function(memo, val) {
+        return memo.concat(val, args.map(function(prefix) {
+            return prefix + val
+        }));
+    }, ['']);
+}
+
+function rootNode(args) {
+    args = Array.prototype.slice.call(arguments, 0);
+    return root.apply(path, ['node_modules'].concat(args));
+}

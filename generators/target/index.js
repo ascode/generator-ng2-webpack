@@ -53,22 +53,7 @@ module.exports = generators.Base.extend({
     prompting: function() {
         var self = this;
         var done = this.async();
-        var prompts = [{
-            type: 'input',
-            name: 'targetname',
-            default: 'app',
-            when: function() {
-                return !self.targetname || self.targetname.length <= 0;
-            },
-            validate: validators.validateTarget(self.configOptions.clientTargets),
-            message: 'How would you like to name your target application?'
-        }, {
-            type: 'list',
-            name: 'targettype',
-            default: 'web',
-            message: 'What type of target application do you want to create?',
-            choices: ['web', 'fuse']
-        }];
+        var prompts = [];
         this.prompt(prompts, function(answers) {
             this.answers = answers;
             done();
@@ -77,91 +62,56 @@ module.exports = generators.Base.extend({
 
     configuring: function() {
 
-        this.targetname = this.mixins.dasherize(this.targetname || this.answers.targetname);
-        this.targettype = this.answers.targettype;
-        this.suffix = this.mixins.targetnameToSuffix(this.targetname);
 
-        var validator = validators.validateTarget(this.configOptions.clientTargets);
-        var validateResult = validator(this.targetname);
-        if (validateResult !== true) {
-            this.log.error(validateResult);
-            this.env.error();
-        }
-
-        this.composeWith(this.mixins.getGeneratorShortname() + ':component', {
-            args: [this.targetname, 'main'],
-            options: {
-                targettype: this.targettype // passing the targettype to component
-            }
-        });
     },
 
     writing: function() {
 
         this.mixins.createDirSync(this.destinationPath(this.configOptions.clientFolder));
-        this.mixins.createDirSync(this.destinationPath(path.join(this.configOptions.clientFolder, this.targetname)));
-
-        switch (this.targettype) {
-            case 'web':
-                this.fs.copyTpl(
-                    this.templatePath('vendor.ts'),
-                    this.destinationPath(path.join(this.configOptions.clientFolder, this.targetname, 'vendor.ts'))
-                );
-                this.fs.copyTpl(
-                    this.templatePath('bootstrap.ts'),
-                    this.destinationPath(path.join(this.configOptions.clientFolder, this.targetname, 'bootstrap.ts'))
-                );
-
-                this.fs.copy(
-                    this.templatePath('index.template.html'),
-                    this.destinationPath(path.join(this.configOptions.clientFolder, this.targetname, 'index.html'))
-                );
-                break;
-
-            case 'fuse':
-                this.fs.copyTpl(
-                    this.templatePath('vendor.fuse.ts'),
-                    this.destinationPath(path.join(this.configOptions.clientFolder, this.targetname, 'vendor.ts'))
-                );
-                this.fs.copyTpl(
-                    this.templatePath('bootstrap.fuse.ts'),
-                    this.destinationPath(path.join(this.configOptions.clientFolder, this.targetname, 'bootstrap.ts'))
-                );
-                this.fs.copy(
-                    this.templatePath('index.html'),
-                    this.destinationPath(path.join(this.configOptions.clientFolder, this.targetname, 'index.html'))
-                );
-
-                this.fs.copy(
-                    this.templatePath('index.fuse.ux'),
-                    this.destinationPath(path.join(this.configOptions.clientFolder, this.targetname, 'index.ux')), {
-                        targetname: this.targetname
-                    }
-                );
-
-                this.fs.copy(
-                    this.templatePath('index.fuse.unoproj'),
-                    this.destinationPath(path.join(this.configOptions.clientFolder, this.targetname, 'index.unoproj'))
-                );
-                this.fs.copy(
-                    this.templatePath('index.fuse.uxl'),
-                    this.destinationPath(path.join(this.configOptions.clientFolder, this.targetname, 'index.uxl'))
-                );
-                break;
-        }
 
         this.fs.copyTpl(
-            this.templatePath('app.e2e.ts'),
-            this.destinationPath(path.join('test', 'e2e', this.targetname, this.targetname + '.e2e.ts')), {
-                targetname: this.targetname
-            }
+            this.templatePath('vendor.ts'),
+            this.destinationPath(path.join(this.configOptions.clientFolder, 'vendor.ts'))
+        );
+        this.fs.copyTpl(
+            this.templatePath('bootstrap.ts'),
+            this.destinationPath(path.join(this.configOptions.clientFolder, 'bootstrap.ts'))
         );
 
-        this.fs.copyTpl(
-            this.templatePath('index.e2e.ts'),
-            this.destinationPath(path.join('test', 'e2e', this.targetname, 'index.e2e.ts')), {
-                targetname: this.targetname
-            }
+        this.fs.copy(
+            this.templatePath('public/index.template.html'),
+            this.destinationPath(path.join(this.configOptions.clientFolder, 'public/index.html'))
         );
+
+        this.fs.copy(
+            this.templatePath('public/service-worker.js'),
+            this.destinationPath(path.join(this.configOptions.clientFolder, 'public/service-worker.js'))
+        );
+
+        this.fs.copy(
+            this.templatePath('public/img/favicon.ico'),
+            this.destinationPath(path.join(this.configOptions.clientFolder, 'public/img/favicon.ico'))
+        );
+
+        this.fs.copy(
+            this.templatePath('public/img/shield-with-beta.png'),
+            this.destinationPath(path.join(this.configOptions.clientFolder, 'public/img/shield-with-beta.png'))
+        );
+
+        this.fs.copy(
+            this.templatePath('app'),
+            this.destinationPath(path.join(this.configOptions.clientFolder, 'app'))
+        );
+
+        this.fs.copy(
+            this.templatePath('shims'),
+            this.destinationPath(path.join(this.configOptions.clientFolder, 'shims'))
+        );
+
+        this.fs.copy(
+            this.templatePath('style'),
+            this.destinationPath(path.join(this.configOptions.clientFolder, 'style'))
+        );
+
     }
 });

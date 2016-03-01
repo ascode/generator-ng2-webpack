@@ -108,30 +108,44 @@ module.exports = generators.Base.extend({
         //this.mixins.createDirSync('test');
         //this.fs.write(this.destinationPath('test/.gitignore'), '');
 
+        this.fs.copy(
+            this.templatePath('typings'),
+            this.destinationPath('typings')
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('_editorconfig'),
+            this.destinationPath('.editorconfig')
+        );
+
         this.fs.copyTpl(
             this.templatePath('_eslintignore'),
             this.destinationPath('.eslintignore')
         );
+
         this.fs.copyTpl(
             this.templatePath('_eslintrc.json'),
             this.destinationPath('.eslintrc.json')
         );
+
         this.fs.copyTpl(
             this.templatePath('_gitignore'),
             this.destinationPath('.gitignore')
         );
+
         this.fs.copyTpl(
             this.templatePath('_jsbeautifyrc'),
             this.destinationPath('.jsbeautifyrc')
         );
+
         this.fs.copyTpl(
             this.templatePath('_npmrc'),
             this.destinationPath('.npmrc')
         );
 
         this.fs.copyTpl(
-            this.templatePath('_travis.yml'),
-            this.destinationPath('.travis.yml')
+            this.templatePath('_nvmrc'),
+            this.destinationPath('.nvmrc')
         );
 
         this.fs.copyTpl(
@@ -141,18 +155,19 @@ module.exports = generators.Base.extend({
                 clientFolder: this.answers.clientFolder
             }
         );
+
         this.fs.copyTpl(
             this.templatePath('_README.md'),
             this.destinationPath('README.md'), {
                 appname: this.appname
             }
         );
+
         this.fs.copyTpl(
-            this.templatePath('_spec-bundle.js'),
-            this.destinationPath('spec-bundle.js'), {
-                clientFolder: this.answers.clientFolder
-            }
+            this.templatePath('_travis.yml'),
+            this.destinationPath('.travis.yml')
         );
+
         this.fs.copyTpl(
             this.templatePath('_tsconfig.json'),
             this.destinationPath('tsconfig.json'), {
@@ -163,24 +178,6 @@ module.exports = generators.Base.extend({
             this.templatePath('karma.conf.js'),
             this.destinationPath('karma.conf.js')
         );
-        this.fs.copyTpl(
-            this.templatePath('tslint.json'),
-            this.destinationPath('tslint.json')
-        );
-        this.fs.copyTpl(
-            this.templatePath('webpack.config.js'),
-            this.destinationPath('webpack.config.js')
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('tsd.json'),
-            this.destinationPath('tsd.json')
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('sanity.spec.ts'),
-            this.destinationPath('test/sanity.spec.ts')
-        );
 
         this.fs.copyTpl(
             this.templatePath('protractor.conf.js'),
@@ -188,27 +185,26 @@ module.exports = generators.Base.extend({
         );
 
         this.fs.copyTpl(
-            this.templatePath('protractor/browserExtension.js'),
-            this.destinationPath('protractor/browserExtension.js')
+            this.templatePath('tslint.json'),
+            this.destinationPath('tslint.json')
         );
 
-        this.fs.copy(
-            this.templatePath('plugins/PostCompilePlugin.js'),
-            this.destinationPath('plugins/PostCompilePlugin.js')
+        this.fs.copyTpl(
+            this.templatePath('typedoc.json'),
+            this.destinationPath('typedoc.json')
         );
 
-        this.fs.copy(
-            this.templatePath('fuse/fuse.d.ts'),
-            this.destinationPath('typings/fuse/fuse.d.ts')
+        this.fs.copyTpl(
+            this.templatePath('typings.json'),
+            this.destinationPath('typings.json')
         );
 
-        ['AngularBootstrap.js', 'AngularRenderer.js', 'bootstrap.ts', 'dom_adapter.ts', 'element.ts', 'fuse_location_strategy.ts', 'fuse_polyfills.ts', 'renderer.ts', 'vendor.ts', 'xhr.ts', 'zone.ts', 'zone_patch.ts']
-        .forEach(function(file) {
-            this.fs.copyTpl(
-                this.templatePath('fuse/' + file),
-                this.destinationPath('fuse/' + file)
-            );
-        }.bind(this));
+        this.fs.copyTpl(
+            this.templatePath('webpack.config.js'),
+            this.destinationPath('webpack.config.js')
+        );
+
+
 
     },
 

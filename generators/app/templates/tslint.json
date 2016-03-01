@@ -1,14 +1,10 @@
 {
-  "rulesDirectory": "node_modules/tslint-eslint-rules/dist/rules",
   "rules": {
     "class-name": true,
     "curly": true,
-    "eofline": false,
+    "eofline": true,
     "indent": "spaces",
-    "max-line-length": [
-      true,
-      1000
-    ],
+    "max-line-length": false,
     "member-ordering": [
       true,
       "public-before-private",
@@ -16,36 +12,16 @@
       "variables-before-functions"
     ],
     "no-arg": true,
-    "no-consecutive-blank-lines": true,
-    "no-console": [true, 
-      "debug",
-      "log",
-      "info",
-      "time",
-      "timeEnd",
-      "trace"
-    ],
     "no-construct": true,
-    "no-debugger": true,
     "no-duplicate-key": true,
     "no-duplicate-variable": true,
-    "no-empty": false,
+    "no-empty": true,
     "no-eval": true,
-    "no-inferrable-types": true,
-    "no-internal-module": true,
-    "no-shadowed-variable": true,
-    "trailing-comma": [
-            true, {
-                "multiline": "never",
-                "singleline": "never"
-            }
-    ],
     "no-trailing-whitespace": true,
     "no-unused-expression": true,
     "no-unused-variable": true,
     "no-unreachable": true,
     "no-use-before-declare": true,
-    "no-var-keyword": true,
     "one-line": [
       true,
       "check-open-brace",
@@ -53,29 +29,15 @@
       "check-else",
       "check-whitespace"
     ],
-    "quotemark": [
-      true,
-      "single"
-    ],
-    "radix": true,
+    "quotemark": false,
     "semicolon": true,
     "triple-equals": [
       true,
       "allow-null-check"
     ],
-    "use-strict": [
-      true,
-      "check-module"
-    ],
-    "variable-name": [
-      true,
-      "check-format",
-      "ban-keywords",
-      "allow-leading-underscore"
-    ],
+    "variable-name": false,
     "whitespace": [
       true,
-      "check-branch",
       "check-decl",
       "check-operator",
       "check-separator",
