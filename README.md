@@ -1,10 +1,9 @@
-[![Join the chat][gitter-image]][gitter-url]    
+[![NPM](https://nodei.co/npm/generator-ng2-webpack.png?downloads=true)](https://npmjs.org/package/generator-ng2-webpack)
 
-[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][downloads-url]   
-
-[![NPM][npm-nodei-image]][npm-nodei-url]
+[![Join the chat at https://gitter.im/cmelion/generator-ng2-webpack](https://badges.gitter.im/cmelion/generator-ng2-webpack.svg)](https://gitter.im/cmelion/generator-ng2-webpack?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 # generator-ng2-webpack
+
 An opinionated [Yeoman](http://yeoman.io) generator for scaffolding an app using angular2 and webpack
 
 # Credits
@@ -116,6 +115,11 @@ It will start a local server using `webpack-dev-server` which will watch, build 
 
 * single run: `npm test`
 * live mode (TDD style): `npm run test-watch`
+
+## Frequently asked questions
+* How do I async load a component?
+ * see wiki [How-do-I-async-load-a-component-with-AsyncRoute](https://github.com/cmelion/generator-ng2-webpack/wiki/How-do-I-async-load-a-component-with-AsyncRoute%3F)
+
 
 # License
 
