@@ -116,6 +116,11 @@ It will start a local server using `webpack-dev-server` which will watch, build 
 * single run: `npm test`
 * live mode (TDD style): `npm run test-watch`
 
+## Frequently asked questions
+* How do I async load a component?
+ * see wiki [How-do-I-async-load-a-component-with-AsyncRoute](https://github.com/cmelion/generator-ng2-webpack/wiki/How-do-I-async-load-a-component-with-AsyncRoute%3F)
+
+
 # License
 
 [MIT](/LICENSE)
