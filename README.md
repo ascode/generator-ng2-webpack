@@ -72,6 +72,7 @@ go to [http://localhost:8080](http://localhost:8080) in your browser.
 # Table of Contents
 
 * [Getting Started](#getting-started)
+    * [File Structure](#file-structure)
     * [Dependencies](#dependencies)
     * [Installing](#installing)
     * [Running the app](#running-the-app)
@@ -80,6 +81,42 @@ go to [http://localhost:8080](http://localhost:8080) in your browser.
 * [License](#license)
 
 # Getting Started
+
+## File Structure
+
+```
+├── app/                            * top level web app component folder
+│   ├── components/                 * subcomponents
+│   │   ├── about/                  * example page level component folder
+│   │   │   ├── index.async.ts      * .async indicates that the component will be asychronously loaded
+│   │   │   ├── spec.ts             * unit test
+│   │   │   ├── style.scss          * css styles, could be css, less or sass
+│   │   │   └── template.html       * component's html template
+│   │   └── home/                   * example main page level component
+│   │       ├── e2e.js              * end-to-end test for home
+│   │       ├── index.ts            * a simple synchronous component
+│   │       ├── spec.ts             * 
+│   │       ├── style.scss          * 
+│   │       └── template.html       * 
+│   ├── e2e.js                      * end-to-end test for the app component
+│   ├── index.ts                    * the app component
+│   ├── root.spec.ts                * the main entry point for hierarchically nested tests.
+│   ├── services/                   * app level service folder
+│   │   └── api/                    * example application level service folder
+│   │       ├── index.ts            * example service
+│   │       └── spec.ts             * unit test associated with example service
+│   ├── style.scss                  * application component specific styles
+│   └── template.html               * application component html template
+├── bootstrap.ts                    * application entry point (bootstrap)
+├── public/                         * static public facing resources
+│   ├── img/                        * global/top level icons and images
+│   └── index.html                  * the html index page where it all starts
+├── shims/                          * shims an polyfills for non-compliant browsers
+│   └── shims_for_IE.js             * sample shim
+├── style/                          * 
+│   └── app.scss                    * styles required by the index page
+└── vendor.ts                       * this is where we import shims/polyfills and core third party libraries
+```
 
 ## Dependencies
 
