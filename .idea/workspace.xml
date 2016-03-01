@@ -5,7 +5,6 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/app/templates/karma-shim.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/app/index.js" afterPath="$PROJECT_DIR$/generators/app/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/app/templates/webpack.config.js" afterPath="$PROJECT_DIR$/generators/app/templates/webpack.config.js" />
     </list>
     <ignored path="generator-ng2-webpack.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -18,7 +17,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CreatePatchCommitExecutor">
-    <option name="PATCH_PATH" value="" />
+    <option name="PATCH_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -638,7 +637,19 @@
       <option name="project" value="LOCAL" />
       <updated>1456844994006</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Support testing async components.">
+      <created>1456845023946</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1456845023946</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Add missing shim for karma.">
+      <created>1456845065678</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1456845065678</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -679,7 +690,9 @@
     <MESSAGE value="Hardcode title for now pending re-org of htmlWebpackPlugin&#10;update gitignore to account for ide" />
     <MESSAGE value="Add npm information" />
     <MESSAGE value="Add missing unit test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add missing unit test" />
+    <MESSAGE value="Support testing async components." />
+    <MESSAGE value="Add missing shim for karma." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add missing shim for karma." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

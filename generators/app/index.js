@@ -174,9 +174,15 @@ module.exports = generators.Base.extend({
                 clientFolder: this.answers.clientFolder
             }
         );
+
         this.fs.copyTpl(
             this.templatePath('karma.conf.js'),
             this.destinationPath('karma.conf.js')
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('karma-shim.js'),
+            this.destinationPath('karma-shim.js')
         );
 
         this.fs.copyTpl(
