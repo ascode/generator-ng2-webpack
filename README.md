@@ -24,6 +24,12 @@ npm install -g generator-ng2-webpack
 Then generate your new project:
 
 ```bash
+# create an application directory
+$mkdir my-app
+
+# change directory to your app
+$ cd my-app
+
 yo ng2-webpack [project-name]
 ```
 
@@ -51,17 +57,11 @@ This workflow serves as a starting point for building Angular 2.0 applications u
 
 ### Quick start
 
-> Clone/Download the repo then edit `app.js` inside [`/src/app/app.js`](/src/app/app.js)
 
 ```bash
-# clone our repo
-$ git clone https://github.com/preboot/angular-webpack.git my-app
 
 # change directory to your app
 $ cd my-app
-
-# install the dependencies with npm
-$ npm install
 
 # start the server
 $ npm start
