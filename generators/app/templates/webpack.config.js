@@ -9,6 +9,9 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
+var DEFAULT_TARGET = 'app';
+var target = process.env.TARGET || DEFAULT_TARGET;
+
 
 /**
  * Env
@@ -170,6 +173,11 @@ module.exports = function makeWebpackConfig() {
             'process.env': {
                 ENV: JSON.stringify(ENV)
             }
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/public/index.html',
+            inject: 'body',
+            title: 'App - ' + target
         })
     ];
 
@@ -193,9 +201,11 @@ module.exports = function makeWebpackConfig() {
 
             // Inject script and link tags into html files
             // Reference: https://github.com/ampedandwired/html-webpack-plugin
+
             new HtmlWebpackPlugin({
                 template: './src/public/index.html',
                 inject: 'body',
+                title: 'App - ' + target,
                 chunksSortMode: function compare(a, b) {
                     // common always first
                     if (a.names[0] === 'common') {

@@ -78,7 +78,7 @@ module.exports = generators.Base.extend({
             this.destinationPath(path.join(this.configOptions.clientFolder, 'bootstrap.ts'))
         );
 
-        this.fs.copy(
+        this.fs.copyTpl(
             this.templatePath('public/index.template.html'),
             this.destinationPath(path.join(this.configOptions.clientFolder, 'public/index.html'))
         );
