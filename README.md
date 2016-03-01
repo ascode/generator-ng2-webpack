@@ -23,7 +23,6 @@ yo ng2-webpack [project-name]
 ```
 
 You then have access to the following sub generators:
-* **yo ng2-webpack:target** (Creates a new target - you can think of it as another application)
 * **yo ng2-webpack:service** (Creates a service)
 * **yo ng2-webpack:pipe** (Creates a pipe)
 * **yo ng2-webpack:component** (Creates a component)
