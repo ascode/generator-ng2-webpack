@@ -2,100 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8cf5df4f-5618-4d2c-a864-00775e45db6f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/target/templates/public/img/favicon.ico" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/target/templates/public/img/shield-with-beta.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/generator-ng2-webpack.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/generator_ng2_webpack_node_modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/app/templates/_editorconfig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/app/templates/_nvmrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/app/templates/typedoc.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/app/templates/typings.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/app/templates/typings/browser.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/app/templates/typings/browser/ambient/angular-protractor/angular-protractor.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/app/templates/typings/browser/ambient/es6-shim/es6-shim.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/app/templates/typings/browser/ambient/hammerjs/hammerjs.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/app/templates/typings/browser/ambient/jasmine/jasmine.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/app/templates/typings/browser/ambient/ng2/ng2.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/app/templates/typings/browser/ambient/node/node.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/app/templates/typings/browser/ambient/selenium-webdriver/selenium-webdriver.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/app/templates/typings/browser/ambient/webpack/webpack.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/app/templates/typings/browser/ambient/zone.js/zone.js.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/app/templates/typings/browser/definitions/es6-promise/es6-promise.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/app/templates/typings/main.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/app/templates/typings/main/ambient/angular-protractor/angular-protractor.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/app/templates/typings/main/ambient/es6-shim/es6-shim.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/app/templates/typings/main/ambient/hammerjs/hammerjs.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/app/templates/typings/main/ambient/jasmine/jasmine.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/app/templates/typings/main/ambient/ng2/ng2.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/app/templates/typings/main/ambient/node/node.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/app/templates/typings/main/ambient/selenium-webdriver/selenium-webdriver.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/app/templates/typings/main/ambient/webpack/webpack.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/app/templates/typings/main/ambient/zone.js/zone.js.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/app/templates/typings/main/definitions/es6-promise/es6-promise.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/target/templates/app/components/about/index.async.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/target/templates/app/components/about/style.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/target/templates/app/components/about/template.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/target/templates/app/components/home/e2e.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/target/templates/app/components/home/index.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/target/templates/app/components/home/spec.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/target/templates/app/components/home/style.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/target/templates/app/components/home/template.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/target/templates/app/e2e.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/target/templates/app/index.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/target/templates/app/root.spec.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/target/templates/app/services/api/index.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/target/templates/app/services/api/spec.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/target/templates/app/style.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/target/templates/app/template.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/target/templates/public/index.template.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/target/templates/public/service-worker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/target/templates/shims/shims_for_IE.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/generators/target/templates/style/app.scss" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/ng2-webpack.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/app/templates/_spec-bundle.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/app/templates/fuse/Angular.uno" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/app/templates/fuse/AngularBootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/app/templates/fuse/AngularRenderer.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/app/templates/fuse/bootstrap.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/app/templates/fuse/dom_adapter.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/app/templates/fuse/element.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/app/templates/fuse/fuse.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/app/templates/fuse/fuse_location_strategy.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/app/templates/fuse/fuse_polyfills.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/app/templates/fuse/renderer.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/app/templates/fuse/vendor.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/app/templates/fuse/xhr.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/app/templates/fuse/zone.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/app/templates/fuse/zone_patch.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/app/templates/plugins/PostCompilePlugin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/app/templates/protractor/browserExtension.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/app/templates/sanity.spec.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/app/templates/tsd.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/component/templates/_component.fuse.spec.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/component/templates/_component.fuse.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/target/templates/app.e2e.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/target/templates/bootstrap.fuse.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/target/templates/index.e2e.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/target/templates/index.fuse.unoproj" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/target/templates/index.fuse.ux" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/target/templates/index.fuse.uxl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/target/templates/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/target/templates/index.template.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/generators/target/templates/vendor.fuse.ts" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/app/index.js" afterPath="$PROJECT_DIR$/generators/app/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/app/templates/_package.json" afterPath="$PROJECT_DIR$/generators/app/templates/_package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/app/templates/_travis.yml" afterPath="$PROJECT_DIR$/generators/app/templates/_travis.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/app/templates/_tsconfig.json" afterPath="$PROJECT_DIR$/generators/app/templates/_tsconfig.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/app/templates/karma.conf.js" afterPath="$PROJECT_DIR$/generators/app/templates/karma.conf.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/app/templates/protractor.conf.js" afterPath="$PROJECT_DIR$/generators/app/templates/protractor.conf.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/app/templates/tslint.json" afterPath="$PROJECT_DIR$/generators/app/templates/tslint.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/app/templates/webpack.config.js" afterPath="$PROJECT_DIR$/generators/app/templates/webpack.config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/target/index.js" afterPath="$PROJECT_DIR$/generators/target/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/target/templates/bootstrap.ts" afterPath="$PROJECT_DIR$/generators/target/templates/bootstrap.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generators/target/templates/vendor.ts" afterPath="$PROJECT_DIR$/generators/target/templates/vendor.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="generator-ng2-webpack.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -116,16 +24,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name=".jsbeautifyrc" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.jsbeautifyrc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="gulpfile.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gulpfile.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -136,13 +34,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/generators/target/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.45686275">
+            <state vertical-scroll-proportion="-8.925926">
               <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
+            <state split_layout="FIRST">
+              <first_editor vertical-scroll-proportion="0.0">
+                <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+          <provider editor-type-id="MultiMarkdownFxPreviewEditor">
+            <state />
           </provider>
         </entry>
       </file>
@@ -235,6 +149,7 @@
         <option value="$PROJECT_DIR$/generators/target/templates/public/index.template.html" />
         <option value="$PROJECT_DIR$/generators/app/index.js" />
         <option value="$PROJECT_DIR$/generators/target/index.js" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -466,21 +381,29 @@
       <option name="number" value="Default" />
       <updated>1456793057677</updated>
     </task>
+    <task id="LOCAL-00001" summary="Update Readme">
+      <created>1456800036998</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1456800036998</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947146" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3192771" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3192771" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -494,6 +417,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update Readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Readme" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -594,10 +521,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/generators/target/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45686275">
+        <state vertical-scroll-proportion="-8.925926">
           <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor vertical-scroll-proportion="0.0">
+            <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="MultiMarkdownFxPreviewEditor">
+        <state />
       </provider>
     </entry>
   </component>
