@@ -1,8 +1,4 @@
-[![Join the chat][gitter-image]][gitter-url]    
 
-[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][downloads-url]   
-
-[![NPM][npm-nodei-image]][npm-nodei-url]
 
 # generator-ng2-webpack
 An opinionated [Yeoman](http://yeoman.io) generator for scaffolding an app using angular2 and webpack
