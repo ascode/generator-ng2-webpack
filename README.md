@@ -32,7 +32,7 @@ You then have access to the following sub generators:
 
 Resulting in a complete, yet simple, starter for Angular using Webpack.
 
-This workflow serves as a starting point for building Angular 1.x applications using Webpack. Should be noted that apart from the pre-installed angular package, this workflow is pretty much generic.
+This workflow serves as a starting point for building Angular 2.0 applications using Webpack. Should be noted that apart from the pre-installed angular package, this workflow is pretty much generic.
 
 * Heavily commented webpack configuration with reasonable defaults.
 * ES6, and ES7 support with babel.
