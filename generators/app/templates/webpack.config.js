@@ -103,6 +103,7 @@ module.exports = function makeWebpackConfig() {
                 query: {
                     'ignoreDiagnostics': [
                         2300, // 2300 -> Duplicate identifier
+                        2306, // 2300 -> Not a Module
                         2339, // 2339 -> Property 'decorate' does not exist on type 'typeof Reflect'
                         2364, // 2364 -> Invalid left-hand side of assignment expression
                         2374, // 2374 -> Duplicate number index signature
