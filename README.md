@@ -14,7 +14,7 @@ This generator was inspired by:
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-ng2-webpack using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io) and generator-ng2-webpack using [npm](https://www.npmjs.com/). If you don't already have npm installed, we recommend using [nvm](https://github.com/creationix/nvm) (windows users may want to consult the [wiki](https://github.com/cmelion/generator-ng2-webpack/wiki/NVM-installation-for-Windows)).
 
 ```bash
 npm install -g yo
