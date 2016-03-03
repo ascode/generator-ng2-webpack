@@ -126,9 +126,16 @@ What you need to run this app:
 
 ## Installing
 
-* `fork` this repo
-* `clone` your fork
-* `npm install` to install all dependencies
+```bash
+# create an application directory
+$mkdir my-app
+
+# change directory to your app
+$ cd my-app
+
+yo ng2-webpack [project-name]
+```
+That's it!
 
 ## Running the app
 
