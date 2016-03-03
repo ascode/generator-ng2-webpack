@@ -42,7 +42,6 @@ var Generator = module.exports = ComponentGenerator.extend({
     configuring: function() {
         Generator.__super__.configuring.apply(this, arguments);
         this.targettype = this.answers.targettype || this.options.targettype;
-        console.log('configuring', this.targettype);
     },
 
     writing: function() {

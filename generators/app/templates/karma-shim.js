@@ -1,3 +1,5 @@
+'use strict';
+
 Error.stackTraceLimit = Infinity;
 require('es6-shim');
 require('angular2/bundles/angular2-polyfills.js');
@@ -18,7 +20,6 @@ var appContext = require.context('./src', true, /root\.spec\.ts/);
 // that will require the file and load it up here. Context will
 // loop and require those spec files here
 appContext.keys().forEach(appContext);
-
 
 // Select BrowserDomAdapter.
 // see https://github.com/AngularClass/angular2-webpack-starter/issues/124

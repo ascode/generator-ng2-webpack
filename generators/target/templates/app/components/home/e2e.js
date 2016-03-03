@@ -1,13 +1,17 @@
-describe('Home', function () {
+'use strict';
 
-  beforeEach(function () {
-    browser.get('/');
-  });
+describe('Home', function() {
 
-  it('should have <home>', function () {
-    var home = element(by.css('app home'));
-    expect(home.isPresent()).toEqual(true);
-    expect(home.getText()).toEqual("Home Works!");
-  });
+    beforeEach(function() {
+        browser.get('/');
+    });
+
+    it('should have <home>', function() {
+        /* eslint-disable no-undef */
+        var home = element(by.css('app home'));
+        /* eslint-enable no-undef */
+        expect(home.isPresent()).toEqual(true);
+        expect(home.getText()).toEqual('Home Works!');
+    });
 
 });

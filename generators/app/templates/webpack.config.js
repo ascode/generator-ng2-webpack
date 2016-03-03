@@ -1,3 +1,5 @@
+'use strict';
+
 // Helper: root(), and rootDir() are defined at the bottom
 var path = require('path');
 var webpack = require('webpack');
@@ -12,14 +14,29 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 var DEFAULT_TARGET = 'app';
 var target = process.env.TARGET || DEFAULT_TARGET;
 
-
 /**
  * Env
  * Get npm lifecycle event to identify the environment
  */
 var ENV = process.env.npm_lifecycle_event;
 
-module.exports = function makeWebpackConfig() {
+// Helper functions
+function root(args) {
+    args = Array.prototype.slice.call(arguments, 0);
+    return path.join.apply(path, [__dirname].concat(args));
+}
+
+function prepend(extensions, args) {
+    args = args || [];
+    if (!Array.isArray(args)) { args = [args]; }
+    return extensions.reduce(function(memo, val) {
+        return memo.concat(val, args.map(function(prefix) {
+            return prefix + val;
+        }));
+    }, ['']);
+}
+
+module.exports = (function makeWebpackConfig() {
     /**
      * Config
      * Reference: http://webpack.github.io/docs/configuration.html
@@ -144,7 +161,7 @@ module.exports = function makeWebpackConfig() {
             {test: /\.scss$/, exclude: root('src', 'style'), loader: 'raw!postcss!sass'},
 
             // support for .html as raw text
-            // todo: change the loader to something that adds a hash to images
+            // suggest changing the loader to something that adds a hash to images
             {test: /\.html$/, loader: 'raw'}
         ],
         postLoaders: [],
@@ -158,7 +175,7 @@ module.exports = function makeWebpackConfig() {
             include: path.resolve('src'),
             loader: 'istanbul-instrumenter-loader',
             exclude: [/\.spec\.ts$/, /\.e2e\.ts$/, /node_modules/]
-        })
+        });
     }
 
     /**
@@ -181,7 +198,6 @@ module.exports = function makeWebpackConfig() {
             title: 'App - ' + target
         })
     ];
-
 
     if (!isTestEnv) {
         config.plugins.push(
@@ -223,7 +239,9 @@ module.exports = function makeWebpackConfig() {
                         return 1;
                     }
                     // a must be equal to b
+                    /* eslint-disable no-unreachable */
                     return 0;
+                    /* eslint-enable no-unreachable */
                 }
             }),
 
@@ -249,7 +267,7 @@ module.exports = function makeWebpackConfig() {
             // Minify all javascript, switch loaders to minimizing mode
             new webpack.optimize.UglifyJsPlugin({
                 // Angular 2 is broken again, disabling mangle until beta 6 that should fix the thing
-                // Todo: remove this with beta 6
+                // remove this with beta 6
                 mangle: false
             }),
 
@@ -302,25 +320,5 @@ module.exports = function makeWebpackConfig() {
     };
 
     return config;
-}();
+}());
 
-// Helper functions
-function root(args) {
-    args = Array.prototype.slice.call(arguments, 0);
-    return path.join.apply(path, [__dirname].concat(args));
-}
-
-function prepend(extensions, args) {
-    args = args || [];
-    if (!Array.isArray(args)) { args = [args] }
-    return extensions.reduce(function(memo, val) {
-        return memo.concat(val, args.map(function(prefix) {
-            return prefix + val
-        }));
-    }, ['']);
-}
-
-function rootNode(args) {
-    args = Array.prototype.slice.call(arguments, 0);
-    return root.apply(path, ['node_modules'].concat(args));
-}

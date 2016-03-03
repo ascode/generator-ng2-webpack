@@ -1,3 +1,4 @@
+/*eslint-disable */
 // function.name (all IE)
 /*! @source http://stackoverflow.com/questions/6903762/function-name-not-supported-in-ie*/
 if (!Object.hasOwnProperty('name')) {
@@ -128,3 +129,4 @@ if (!window.console.assert) window.console.assert = function () { };
             clearTimeout(id);
         };
 }());
+/*eslint-disable */

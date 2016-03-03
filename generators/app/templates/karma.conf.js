@@ -1,4 +1,5 @@
-var path = require('path');
+'use strict';
+
 var webpackConfig = require('./webpack.config');
 
 module.exports = function (config) {

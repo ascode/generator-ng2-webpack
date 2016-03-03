@@ -5,7 +5,6 @@ var mixinInspector = require('../../libs/mixinInspector');
 var mixinFile = require('../../libs/mixinFile');
 var mixinBeautify = require('../../libs/mixinBeautify');
 var mixinLodash = require('../../libs/mixinLodash');
-var validators = require('../validators');
 
 module.exports = generators.Base.extend({
 
@@ -51,7 +50,6 @@ module.exports = generators.Base.extend({
     },
 
     prompting: function() {
-        var self = this;
         var done = this.async();
         var prompts = [];
         this.prompt(prompts, function(answers) {
@@ -61,8 +59,6 @@ module.exports = generators.Base.extend({
     },
 
     configuring: function() {
-
-
     },
 
     writing: function() {

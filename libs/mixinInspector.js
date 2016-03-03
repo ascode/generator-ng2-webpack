@@ -79,7 +79,6 @@ var getClientModules = function(clientFolder) {
  * @returns {String} - The suffix name of the target application
  */
 var targetnameToSuffix = function(targetname) {
-    console.log('targetname', targetname);
     return targetname === 'app' ? '' : 'app/components/' + targetname;
 };
 

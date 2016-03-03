@@ -1,3 +1,5 @@
+'use strict';
+
 exports.config = {
     baseUrl: 'http://localhost:8080/',
 
@@ -30,7 +32,6 @@ exports.config = {
 
         browser.ignoreSynchronization = true;
     },
-
 
     /**
      * Angular 2 configuration

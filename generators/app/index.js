@@ -210,8 +210,6 @@ module.exports = generators.Base.extend({
             this.destinationPath('webpack.config.js')
         );
 
-
-
     },
 
     conflicts: function() {
