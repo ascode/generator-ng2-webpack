@@ -53,10 +53,14 @@ module.exports = (function makeWebpackConfig() {
     if (isTestEnv) {
         config.devtool = 'inline-source-map';
     } else if (ENV === 'build') {
-        config.devtool = 'source-map';
+        config.devtool = 'cheap-module-eval-source-map';
     } else {
-        config.devtool = 'eval-source-map';
+        config.devtool = 'cheap-module-eval-source-map';
     }
+
+    /* eslint-disable no-console */
+    console.log('devtool', config.devtool);
+    /* eslint-enable no-console */
 
     // add debug messages
     config.debug = ENV !== 'build' || !isTestEnv;
@@ -241,7 +245,7 @@ module.exports = (function makeWebpackConfig() {
                     // a must be equal to b
                     /* eslint-disable no-unreachable */
                     return 0;
-                    /* eslint-enable no-unreachable */
+                    /* eslint-disable no-unreachable */
                 }
             }),
 
