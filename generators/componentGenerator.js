@@ -52,6 +52,7 @@ module.exports = generators.Base.extend({
         this.configOptions = this.config.getAll();
         this.configOptions.clientTargets = this.mixins.getClientTargets(this.configOptions.clientFolder);
         this.configOptions.clientModules = this.mixins.getClientModules(this.configOptions.clientFolder);
+        console.log('configOptions.clientModules', this.configOptions.clientModules);
     },
 
     prompting: function(done, extraPrompts) {
@@ -84,7 +85,7 @@ module.exports = generators.Base.extend({
     },
 
     configuring: function() {
-        this.modulename = this.mixins.dasherize(this.modulename || this.answers.modulename);
+        this.modulename = this.modulename || this.answers.modulename;
         this[this.basetype + 'name'] = this.mixins.camelize(this[this.basetype + 'name'] || this.answers[this.basetype + 'name']);
         this[this.basetype + 'nameFile'] = this.isDasherize ? this.mixins.dasherize(this[this.basetype + 'name']) : this[this.basetype + 'name'];
         this[this.basetype + 'nameClass'] = this.mixins.classify(this[this.basetype + 'name']);

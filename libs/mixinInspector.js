@@ -53,25 +53,43 @@ var getClientTargets = function(clientFolder) {
 /**
  * Return the list of angularjs client modules
  * @param {String} clientFolder - The client folder
- * @param {Boolean} isDirectory - true to retreive directories, false to retreive files
+ * @param {String} moduleName - the module folder
  * @returns {String[]} - An array of client modules
  */
-var getClientModules = function(clientFolder) {
+var getClientModules = function(clientFolder, moduleName) {
+    var results = [];
+    var charCountToIgnore = 'src/app/components/'.length;
+
+    moduleName = moduleName || 'app';
+
     if (!clientFolder) {
         return [];
     }
-    var pathdir = this.destinationPath(path.join(clientFolder, 'app/components'));
+    var pathString = path.join(clientFolder, moduleName, 'components');
+    var pathdir = this.destinationPath(pathString);
+
     if (!fs.existsSync(pathdir)) {
         return [];
     }
 
     var result = fs.readdirSync(pathdir)
         .filter(function(file) {
-            return fs.statSync(path.join(pathdir, file)).isDirectory() === true;
+            return fs.statSync(path.join(pathString, file)).isDirectory() === true;
         });
-    result.push('app');
-    return result;
+
+    result.forEach(function(module) {
+        var includeSeparator = pathString.slice(charCountToIgnore).length > 0;
+        results.push(path.join(pathString.slice(charCountToIgnore), includeSeparator ? '/' : '' , module));
+        results = results.concat(getClientModules.apply(this, [pathString, module]));
+    }, this);
+
+    if (moduleName === 'app') {
+        results.push('app');
+    }
+
+    return results;
 };
+
 /**
  * Converts the target name application to suffix
  * @param {String} targetname - The name of the target application
