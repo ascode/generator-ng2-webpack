@@ -52,7 +52,6 @@ module.exports = generators.Base.extend({
         this.configOptions = this.config.getAll();
         this.configOptions.clientTargets = this.mixins.getClientTargets(this.configOptions.clientFolder);
         this.configOptions.clientModules = this.mixins.getClientModules(this.configOptions.clientFolder);
-        console.log('configOptions.clientModules', this.configOptions.clientModules);
     },
 
     prompting: function(done, extraPrompts) {

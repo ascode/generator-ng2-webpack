@@ -19,7 +19,12 @@
     "ci": "npm run e2e && npm run test",
     "docs": "typedoc --options typedoc.json src/app/app.ts",
     "start": "npm run server",
-    "postinstall": "npm run webdriver-update && typings install"
+    "postinstall": "npm run webdriver-update && typings install",
+    "new-component": "yo ng2-webpack:component",
+    "new-directive": "yo ng2-webpack:directive",
+    "new-interface": "yo ng2-webpack:interface",
+    "new-pipe": "yo ng2-webpack:pipe",
+    "new-service": "yo ng2-webpack:service"
   },
   "dependencies": {
     "angular2": "2.0.0-beta.7",

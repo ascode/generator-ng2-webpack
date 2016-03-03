@@ -58,10 +58,6 @@ module.exports = (function makeWebpackConfig() {
         config.devtool = 'cheap-module-eval-source-map';
     }
 
-    /* eslint-disable no-console */
-    console.log('devtool', config.devtool);
-    /* eslint-enable no-console */
-
     // add debug messages
     config.debug = ENV !== 'build' || !isTestEnv;
 

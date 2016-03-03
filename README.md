@@ -42,6 +42,24 @@ You then have access to the following sub generators:
 
 Resulting in a complete, yet simple, starter for Angular using Webpack.
 
+You may prefer to use npm to run your sub-generators.
+For a complete list of available commands and to add code completion, run the following commands in a terminal:
+
+    $ npm completion >> ~/.bashrc
+    $ source ~/.bashrc
+    $ npm run <tab><tab>
+    
+which will produce the following output    
+```
+
+build             docs              new-directive     server            webdriver-start
+ci                e2e               new-interface     start             webdriver-update
+clean             e2e-live          new-pipe          test              
+clean-install     lint              new-service       test-watch        
+clean-start       new-component     postinstall       watch      
+ 
+```
+
 This workflow serves as a starting point for building Angular 2.0 applications using Webpack. Should be noted that apart from the pre-installed angular package, this workflow is pretty much generic.
 
 * Heavily commented webpack configuration with reasonable defaults.
