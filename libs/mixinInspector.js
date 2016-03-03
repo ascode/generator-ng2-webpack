@@ -32,7 +32,7 @@ var getClientTargets = function(clientFolder) {
     if (!clientFolder) {
         return [];
     }
-    var pathdir = this.destinationPath(path.join(clientFolder, 'scripts'));
+    var pathdir = this.destinationPath(path.join(clientFolder, 'app'));
     if (!fs.existsSync(pathdir)) {
         return [];
     }
@@ -60,7 +60,7 @@ var getClientModules = function(clientFolder) {
     if (!clientFolder) {
         return [];
     }
-    var pathdir = this.destinationPath(path.join(clientFolder, 'scripts'));
+    var pathdir = this.destinationPath(path.join(clientFolder, 'app/components'));
     if (!fs.existsSync(pathdir)) {
         return [];
     }
@@ -69,6 +69,7 @@ var getClientModules = function(clientFolder) {
         .filter(function(file) {
             return fs.statSync(path.join(pathdir, file)).isDirectory() === true;
         });
+    result.push('app');
     return result;
 };
 /**
@@ -78,7 +79,8 @@ var getClientModules = function(clientFolder) {
  * @returns {String} - The suffix name of the target application
  */
 var targetnameToSuffix = function(targetname) {
-    return targetname === 'app' ? '' : '-' + targetname;
+    console.log('targetname', targetname);
+    return targetname === 'app' ? '' : 'app/components/' + targetname;
 };
 
 /**

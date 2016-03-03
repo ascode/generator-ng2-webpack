@@ -33,7 +33,7 @@ var Generator = module.exports = ComponentGenerator.extend({
                 return !self.options.targettype || self.options.targettype.length <= 0;
             },
             message: 'What type of component do you want to create?',
-            choices: ['web', 'fuse']
+            choices: ['web']
         }];
         Generator.__super__.prompting.call(this, done, extraPrompts);
 
@@ -42,6 +42,7 @@ var Generator = module.exports = ComponentGenerator.extend({
     configuring: function() {
         Generator.__super__.configuring.apply(this, arguments);
         this.targettype = this.answers.targettype || this.options.targettype;
+        console.log('configuring', this.targettype);
     },
 
     writing: function() {
@@ -77,38 +78,6 @@ var Generator = module.exports = ComponentGenerator.extend({
                 this.fs.copyTpl(
                     this.templatePath('_component.scss'),
                     this.destinationPath(path.join(destinationPath, this.componentnameFile + '.component.scss'))
-                );
-                break;
-
-            case 'fuse':
-                this.fs.copyTpl(
-                    this.templatePath('_component.fuse.ts'),
-                    this.destinationPath(path.join(destinationPath, this.componentname + '.ts')), {
-                        componentnameFile: this.componentnameFile,
-                        componentname: this.componentname,
-                        componentnameClass: this.componentnameClass
-                    }
-                );
-
-                this.fs.copyTpl(
-                    this.templatePath('_component.fuse.spec.ts'),
-                    this.destinationPath(path.join(destinationPath, this.componentname + '.spec.ts')), {
-                        componentnameFile: this.componentnameFile,
-                        componentname: this.componentname,
-                        componentnameClass: this.componentnameClass
-                    }
-                );
-                this.fs.copyTpl(
-                    this.templatePath('_component.ngux'),
-                    this.destinationPath(path.join(destinationPath, this.componentname + '.ngux')), {
-                        componentnameFile: this.componentnameFile,
-                        componentname: this.componentname,
-                        componentnameClass: this.componentnameClass
-                    }
-                );
-                this.fs.copyTpl(
-                    this.templatePath('ngux/_component.js'),
-                    this.destinationPath(path.join(destinationPath, 'ngux', this.componentname + '.js'))
                 );
                 break;
         }

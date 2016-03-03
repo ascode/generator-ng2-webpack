@@ -91,7 +91,8 @@ module.exports = generators.Base.extend({
     },
 
     writing: function() {
-        var destinationPath = path.join(this.configOptions.clientFolder, this.modulename, this.basefolder);
+        var modulename = this.modulename === 'app'? this.modulename : 'app/components/' + this.modulename;
+        var destinationPath = path.join(this.configOptions.clientFolder, modulename, this.basefolder);
         if (this.hasOwnFolder) {
             destinationPath = path.join(destinationPath, this[this.basetype + 'nameFile']);
         }
