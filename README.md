@@ -96,6 +96,8 @@ go to [http://localhost:8080](http://localhost:8080) in your browser.
     * [Running the app](#running-the-app)
     * [Developing](#developing)
     * [Testing](#testing)
+    * [Roadmap](#roadmap)
+    * [FAQ](#frequently-asked-questions)
 * [License](#license)
 
 # Getting Started
@@ -177,6 +179,13 @@ It will start a local server using `webpack-dev-server` which will watch, build 
 
 * single run: `npm test`
 * live mode (TDD style): `npm run test-watch`
+* 
+
+## Roadmap
+
+* Mocking with [JSON Server](https://github.com/typicode/json-server)
+* [Docker](https://www.docker.com/) integration
+* Support for [Eclipse Che](https://github.com/eclipse/che)
 
 ## Frequently asked questions
 
@@ -186,6 +195,7 @@ It will start a local server using `webpack-dev-server` which will watch, build 
     * While it's mostly personal preference, there are several good reasons for standardized filenames, see [filename conventions](https://github.com/cmelion/generator-ng2-webpack/wiki/I-hate-that-all-the-files-are-named-index.ts,-style.scss-and-template.html!)
     * In a component based architecture almost everything is a component, checkout [what happened to my .controller. ?](https://github.com/cmelion/generator-ng2-webpack/wiki/What-happened-to-my.controller.ts,-etc%3F)
 * Why should I use a generator? [wiki placeholder](https://github.com/cmelion/placeholder)
+
 
 # License
 
