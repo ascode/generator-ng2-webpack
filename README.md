@@ -60,7 +60,7 @@ clean-start       new-component     postinstall       watch
  
 ```
 
-This workflow serves as a starting point for building Angular 2.0 applications using Webpack. Should be noted that apart from the pre-installed angular package, this workflow is pretty much generic.
+This workflow serves as a starting point for building Angular 2.0 applications using Webpack. It should be noted that apart from the pre-installed angular package, this workflow is pretty much generic and mirrors the React worflow we use.
 
 * Heavily commented webpack configuration with reasonable defaults.
 * ES6, and ES7 support with babel.
