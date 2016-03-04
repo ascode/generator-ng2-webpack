@@ -43,7 +43,7 @@ You then have access to the following sub generators:
 Resulting in a complete, yet simple, starter for Angular using Webpack.
 
 You may prefer to use npm to run your sub-generators.
-For a complete list of available commands and to add code completion, run the following commands in a terminal:
+For a complete list of available commands and to add tab auto-completion, run the following commands in a terminal:
 
     $ npm completion >> ~/.bashrc
     $ source ~/.bashrc
