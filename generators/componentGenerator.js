@@ -69,7 +69,7 @@ module.exports = generators.Base.extend({
         }, {
             type: 'input',
             name: self.basetype + 'name',
-            message: 'How would you like to name your ' + self.basetype + ' name?',
+            message: 'How would you like to name your ' + self.basetype + '?',
             when: function() {
                 return !self[self.basetype + 'name'] || self[self.basetype + 'name'].length <= 0;
             }
