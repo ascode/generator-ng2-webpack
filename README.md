@@ -179,7 +179,6 @@ It will start a local server using `webpack-dev-server` which will watch, build 
 
 * single run: `npm test`
 * live mode (TDD style): `npm run test-watch`
-* 
 
 ## Roadmap
 
