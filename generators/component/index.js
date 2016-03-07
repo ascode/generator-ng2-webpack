@@ -52,7 +52,7 @@ var Generator = module.exports = ComponentGenerator.extend({
             case 'web':
                 this.fs.copyTpl(
                     this.templatePath('_component.ts'),
-                    this.destinationPath(path.join(destinationPath, this.componentnameFile + '.component.ts')), {
+                    this.destinationPath(path.join(destinationPath, 'index.ts')), {
                         componentnameFile: this.componentnameFile,
                         componentname: this.componentname,
                         componentnameClass: this.componentnameClass
@@ -61,7 +61,7 @@ var Generator = module.exports = ComponentGenerator.extend({
 
                 this.fs.copyTpl(
                     this.templatePath('_component.spec.ts'),
-                    this.destinationPath(path.join(destinationPath, this.componentnameFile + '.component.spec.ts')), {
+                    this.destinationPath(path.join(destinationPath, 'spec.ts')), {
                         componentnameFile: this.componentnameFile,
                         componentname: this.componentname,
                         componentnameClass: this.componentnameClass
@@ -70,13 +70,13 @@ var Generator = module.exports = ComponentGenerator.extend({
 
                 this.fs.copyTpl(
                     this.templatePath('_component.html'),
-                    this.destinationPath(path.join(destinationPath, this.componentnameFile + '.component.html')), {
+                    this.destinationPath(path.join(destinationPath, 'template.html')), {
                         componentname: this.componentname
                     }
                 );
                 this.fs.copyTpl(
                     this.templatePath('_component.scss'),
-                    this.destinationPath(path.join(destinationPath, this.componentnameFile + '.component.scss'))
+                    this.destinationPath(path.join(destinationPath, 'style.scss'))
                 );
                 break;
         }

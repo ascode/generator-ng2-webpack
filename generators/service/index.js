@@ -30,7 +30,7 @@ var Generator = module.exports = ComponentGenerator.extend({
 
         this.fs.copyTpl(
             this.templatePath('_service.ts'),
-            this.destinationPath(path.join(destinationPath, this.servicenameFile + '.service.ts')), {
+            this.destinationPath(path.join(destinationPath,  'index.ts')), {
                 servicenameFile: this.servicenameFile,
                 servicename: this.servicename,
                 servicenameClass: this.servicenameClass
@@ -39,7 +39,7 @@ var Generator = module.exports = ComponentGenerator.extend({
 
         this.fs.copyTpl(
             this.templatePath('_service.spec.ts'),
-            this.destinationPath(path.join(destinationPath, this.servicenameFile + '.service.spec.ts')), {
+            this.destinationPath(path.join(destinationPath, 'spec.ts')), {
                 servicenameFile: this.servicenameFile,
                 servicename: this.servicename,
                 servicenameClass: this.servicenameClass

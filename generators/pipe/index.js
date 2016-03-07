@@ -30,7 +30,7 @@ var Generator = module.exports = ComponentGenerator.extend({
 
         this.fs.copyTpl(
             this.templatePath('_pipe.ts'),
-            this.destinationPath(path.join(destinationPath, this.pipenameFile + '.pipe.ts')), {
+            this.destinationPath(path.join(destinationPath, 'index.ts')), {
                 pipenameFile: this.pipenameFile,
                 pipename: this.pipename,
                 pipenameClass: this.pipenameClass
@@ -39,7 +39,7 @@ var Generator = module.exports = ComponentGenerator.extend({
 
         this.fs.copyTpl(
             this.templatePath('_pipe.spec.ts'),
-            this.destinationPath(path.join(destinationPath, this.pipenameFile + '.pipe.spec.ts')), {
+            this.destinationPath(path.join(destinationPath, this.pipenameFile + 'spec.ts')), {
                 pipenameFile: this.pipenameFile,
                 pipename: this.pipename,
                 pipenameClass: this.pipenameClass
