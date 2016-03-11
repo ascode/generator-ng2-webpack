@@ -7,7 +7,10 @@
 An opinionated tool ([Yeoman](http://yeoman.io) generator) for scaffolding an app using angular2 and webpack
 
 We like React too!  So if you have some react components you want to use in your Angular 2 apps we will be adding a sub-generator very soon!
-For now check out the home component in the generated app for a taste of what you can do.
+For now check out the home component in the [generated app](http://cmelion.github.io/generator-ng2-webpack/) for a taste of what you can do.
+
+
+
 
 # Credits
 This generator was inspired by: 

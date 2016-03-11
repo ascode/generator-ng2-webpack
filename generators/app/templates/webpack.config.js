@@ -53,7 +53,7 @@ module.exports = (function makeWebpackConfig() {
     if (isTestEnv) {
         config.devtool = 'inline-source-map';
     } else if (ENV === 'build') {
-        config.devtool = 'cheap-module-eval-source-map';
+        config.devtool = 'false';
     } else {
         config.devtool = 'cheap-module-eval-source-map';
     }
