@@ -89,7 +89,7 @@ module.exports = (function makeWebpackConfig() {
         cache: !isTestEnv,
         root: root(),
         // only discover files that have those extensions
-        extensions: prepend(['.ts','.js','.json','.css', '.scss', '.html'], '.async'), // ensure .async.ts etc also works
+        extensions: prepend(['.ts', '.tsx','.js','.json','.css', '.scss', '.html'], '.async'), // ensure .async.ts etc also works
         alias: {
             'app': 'src/app',
             'common': 'src/common'
@@ -115,13 +115,14 @@ module.exports = (function makeWebpackConfig() {
 
             // Support for .ts files.
             {
-                test: /\.ts$/,
+                test: /\.tsx?$/,
                 loader: 'ts',
                 query: {
                     'ignoreDiagnostics': [
                         2300, // 2300 -> Duplicate identifier
                         2306, // 2300 -> Not a Module
                         2339, // 2339 -> Property 'decorate' does not exist on type 'typeof Reflect'
+                        2347, // 2347 -> Untyped function calls may not accept type arguments
                         2364, // 2364 -> Invalid left-hand side of assignment expression
                         2374, // 2374 -> Duplicate number index signature
                         2375, // 2375 -> Duplicate string index signature
@@ -321,4 +322,3 @@ module.exports = (function makeWebpackConfig() {
 
     return config;
 }());
-

@@ -1,5 +1,6 @@
 import {Component, OnInit} from 'angular2/core';
 import {FORM_DIRECTIVES} from 'angular2/common';
+import {NGReact} from './components/ng-react/index';
 
 @Component({
   selector: 'home',
@@ -8,6 +9,8 @@ import {FORM_DIRECTIVES} from 'angular2/common';
   styles: [require('./style.scss')],
   template: require('./template.html')
 })
+
+
 export class Home implements OnInit {
 
   constructor() {
@@ -15,7 +18,7 @@ export class Home implements OnInit {
   }
 
   ngOnInit() {
-    console.log('Hello Home');
+    NGReact.initialize('Hello From React!');
   }
 
 }
