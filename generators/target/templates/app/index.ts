@@ -27,7 +27,7 @@ import {Home} from './components/home';     // ./components/home/index.ts
     { path: '/about', loader: () => require('./components/about')('About'), name: 'About' }
 ])
 export class App {
-  url: string = 'https://github.com/ocombe/ng2-webpack';
+  url: string = 'https://github.com/cmelion/generator-ng2-webpack';
 
   constructor(public api: Api) {
   }
