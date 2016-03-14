@@ -53,7 +53,7 @@ module.exports = (function makeWebpackConfig() {
     if (isTestEnv) {
         config.devtool = 'inline-source-map';
     } else if (ENV === 'build') {
-        config.devtool = 'false';
+        config.devtool = false;
     } else {
         config.devtool = 'cheap-module-eval-source-map';
     }
@@ -76,9 +76,9 @@ module.exports = (function makeWebpackConfig() {
      */
     config.output = isTestEnv ? {} : {
         path: root('dist'),
-        publicPath: '/',
+        publicPath: '',
         filename: ENV === 'build' ? 'js/[name].[hash].js' : 'js/[name].js',
-        chunkFilename: ENV === 'build' ? '[id].[hash].chunk.js' : '[id].chunk.js'
+        chunkFilename: ENV === 'build' ? '[id].[hash].chunk.js' : '[id].chunk.js',
     };
 
     /**
