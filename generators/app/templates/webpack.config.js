@@ -190,9 +190,11 @@ module.exports = (function makeWebpackConfig() {
         new webpack.DefinePlugin({
             // Environment helpers
             'process.env': {
-                ENV: JSON.stringify(ENV)
+                ENV: JSON.stringify(ENV),
+                NODE_ENV: JSON.stringify(ENV === 'build' ? 'production' : 'development')
             }
         }),
+
         new HtmlWebpackPlugin({
             template: './src/public/index.html',
             inject: 'body',
@@ -267,9 +269,26 @@ module.exports = (function makeWebpackConfig() {
             // Reference: http://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
             // Minify all javascript, switch loaders to minimizing mode
             new webpack.optimize.UglifyJsPlugin({
-                // Angular 2 is broken again, disabling mangle until beta 6 that should fix the thing
-                // remove this with beta 6
-                mangle: false
+                // to debug prod builds uncomment //debug lines and comment //prod lines
+
+                // beautify: true,//debug
+                // mangle: false,//debug
+                // dead_code: false,//debug
+                // unused: false,//debug
+                // deadCode: false,//debug
+                // compress : { screw_ie8 : true, keep_fnames: true, drop_debugger: false, dead_code: false, unused: false, }, // debug
+                // comments: true,//debug
+
+                beautify: false,//prod
+                // disable mangling because of a bug in angular2 beta.1, beta.2 and beta.3
+                // TODO(mastertinner): enable mangling as soon as angular2 beta.4 is out
+                // mangle: { screw_ie8 : true },//prod
+                mangle: {
+                    screw_ie8 : true,
+                    except: ['RouterLink'] // needed for uglify RouterLink problem
+                },// prod
+                compress : { screw_ie8 : true },//prod
+                comments: false//prod
             }),
 
             // Copy assets from the public folder
