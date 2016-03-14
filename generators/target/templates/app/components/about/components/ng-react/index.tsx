@@ -23,8 +23,10 @@ var NGReactComponent = React.createClass<any>({
 
         return (
             <div>
-                <div>Say Hello From React!</div>
-                <button onClick={this._addNotification}>Hello</button>
+                <p>Say Hello From React!</p>
+                <p>
+                    <button onClick={this._addNotification}>Hello</button>
+                </p>
                 <NotificationSystem ref="notificationSystem" />
             </div>
         );

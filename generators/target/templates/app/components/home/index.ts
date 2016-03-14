@@ -1,6 +1,5 @@
-import {Component, OnInit} from 'angular2/core';
+import {Component} from 'angular2/core';
 import {FORM_DIRECTIVES} from 'angular2/common';
-import {NGReact} from './components/ng-react/index';
 
 @Component({
   selector: 'home',
@@ -10,15 +9,10 @@ import {NGReact} from './components/ng-react/index';
   template: require('./template.html')
 })
 
-
-export class Home implements OnInit {
+export class Home {
 
   constructor() {
     // Do stuff
-  }
-
-  ngOnInit() {
-    NGReact.initialize('Hello From React!');
   }
 
 }
