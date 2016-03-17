@@ -2,14 +2,12 @@
 
 [![Join the chat at https://gitter.im/cmelion/generator-ng2-webpack](https://badges.gitter.im/cmelion/generator-ng2-webpack.svg)](https://gitter.im/cmelion/generator-ng2-webpack?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-# generator-ng2-webpack (coming soon: React integration!)
+# generator-ng2-webpack
 
 An opinionated tool ([Yeoman](http://yeoman.io) generator) for scaffolding an app using angular2 and webpack
 
 We like React too!  So if you have some react components you want to use in your Angular 2 apps we will be adding a sub-generator very soon!
-For now check out the home component in the [generated app](http://cmelion.github.io/generator-ng2-webpack/about) for a taste of what you can do.
-
-
+For now check out the home component in the [generated app](//cmelion.github.io/generator-ng2-webpack/about) for a taste of what you can do.
 
 
 # Credits
@@ -18,6 +16,10 @@ This generator was inspired by:
 * https://github.com/AngularClass/angular2-webpack-starter
 * https://github.com/mcfly-io/generator-mcfly-ng2
 * http://www.syntaxsuccess.com/viewarticle/integrating-react-with-angular-2.0
+
+<a href="//cmelion.github.io/generator-ng2-webpack/" rel="Demo App">![Demo App](http://www.masterbrandlk.com/smsdemo/image/demo_icon.jpg)</a>
+
+[Sample generator output](//github.com/cmelion/ng2-webpack-demo-app)
 
 ## Installation
 
