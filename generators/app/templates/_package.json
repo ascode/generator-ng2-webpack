@@ -63,6 +63,7 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-story-reporter": "^0.3.1",
     "karma-webpack": "1.7.0",
+    "left-pad": "git://github.com/azer/left-pad.git#bff80e3ef0db0bfaba7698606c4f623433d14355",
     "node-sass": "^3.4.2",
     "null-loader": "git+https://github.com/webpack/null-loader.git",
     "open": "0.0.5",
