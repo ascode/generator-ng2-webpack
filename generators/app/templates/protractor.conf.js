@@ -1,7 +1,7 @@
 'use strict';
 
 exports.config = {
-    baseUrl: 'http://localhost:8080/',
+    baseUrl: 'http://localhost:9000/',
 
     specs: [
         'src/**/*e2e.js'
