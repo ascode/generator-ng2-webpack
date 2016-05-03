@@ -22,13 +22,15 @@ RUN addgroup yeoman && \
     adduser -h $HOME -D -s /bin/bash -G yeoman yeoman
 #COPY package.json $HOME/package.json
 
-
-
 # Install ng2-webpack via yo
 WORKDIR $HOME
-RUN npm install --global yo generator-ng2-webpack node-inspector
+
+RUN npm install --global yo
 
 USER yeoman
+
+RUN npm install generator-ng2-webpack
+
 RUN yo ng2-webpack --name="demo" --clientFolder="src"
 
 # Install any dependencies missed by ng2-webpack generate
@@ -36,10 +38,6 @@ RUN npm install
 
 # Expose volumes for long term data storage
 VOLUME /
-
-# Exposing node-inspector
-EXPOSE 8123
-EXPOSE 5858
 
 # Exposing tcp port
 EXPOSE 9000
