@@ -17,7 +17,7 @@ RUN apk update && apk add \
     wget \
     && rm -rf /var/cache/apk/*
 
-RUN mkdir -p /home/yeoman
+RUN mkdir -p /home/yeoman/client
 RUN addgroup yeoman && \
     adduser -h $HOME -D -s /bin/bash -G yeoman yeoman
 
@@ -32,10 +32,10 @@ USER yeoman
 
 RUN npm install generator-ng2-webpack
 
-#RUN yo ng2-webpack --name="demo" --clientFolder="src"
 
-# Install any dependencies missed by ng2-webpack generate
-#RUN npm install
+
+RUN cd $HOME/client && \
+    yo ng2-webpack --name="demo" --clientFolder="src"
 
 # Expose volumes for long term data storage
 VOLUME /client
@@ -43,4 +43,4 @@ VOLUME /client
 # Exposing tcp port
 EXPOSE 9000
 
-#CMD ["npm", "start"]
+CMD ["npm", "start"]
