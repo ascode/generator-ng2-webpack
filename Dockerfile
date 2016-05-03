@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:6
+FROM mhart/alpine-node:4.4.3
 MAINTAINER NG2 Webpack Team <cfulnecky@gmail.com>
 
 ENV HOME /home/yeoman
