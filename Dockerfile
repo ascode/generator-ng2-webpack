@@ -13,6 +13,12 @@ RUN apk update && apk add \
     wget \
     && rm -rf /var/cache/apk/*
 
+RUN apk add --no-cache python && \
+    python -m ensurepip && \
+    rm -r /usr/lib/python*/ensurepip && \
+    pip install --upgrade pip setuptools && \
+    rm -r /root/.cache
+
 RUN mkdir -p /home/yeoman
 RUN addgroup yeoman && \
     adduser -h $HOME -D -s /bin/bash -G yeoman yeoman
