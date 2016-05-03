@@ -8,6 +8,7 @@
     "clean": "rimraf node_modules doc dist && npm cache clean",
     "clean-install": "npm run clean && npm install",
     "clean-start": "npm run clean && npm start",
+    "predelayed-open": "npm run server",
     "delayed-open": "sleep 5 && opener http://localhost:9000",
     "docs": "typedoc --options typedoc.json src/app/app.ts",
     "e2e": "protractor",

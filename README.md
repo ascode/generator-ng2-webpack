@@ -61,11 +61,12 @@ For a complete list of available commands and to add tab auto-completion, run th
 which will produce the following output    
 ```
 
-build             docs              new-directive     server            webdriver-start
-ci                e2e               new-interface     start             webdriver-update
-clean             e2e-live          new-pipe          test              
-clean-install     lint              new-service       test-watch        
-clean-start       new-component     postinstall       watch      
+build             docs              new-interface     start
+ci                e2e               new-pipe          test
+clean             e2e-live          new-service       test-watch
+clean-install     lint              postinstall       watch
+clean-start       new-component     predelayed-open   webdriver-start
+delayed-open      new-directive     server            webdriver-update
  
 ```
 
@@ -172,7 +173,11 @@ After you have installed all dependencies you can now run the app with:
 ```bash
 npm start
 ```
+or (if you want to automatically open a browser window)
 
+```bash
+npm delayed-open
+```
 It will start a local server using `webpack-dev-server` which will watch, build (in-memory), and reload for you. The port will be displayed to you as `http://localhost:9000`.
 
 ## Developing
