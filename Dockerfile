@@ -20,6 +20,10 @@ RUN apk update && apk add \
 RUN mkdir -p /home/yeoman
 RUN addgroup yeoman && \
     adduser -h $HOME -D -s /bin/bash -G yeoman yeoman
+
+RUN cd $(npm root -g)/npm \
+    && npm install fs-extra \
+    && sed -i -e s/graceful-fs/fs-extra/ -e s/fs.rename/fs.move/ ./lib/utils/rename.js
 #COPY package.json $HOME/package.json
 
 # Install ng2-webpack via yo
