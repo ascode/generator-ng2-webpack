@@ -1,10 +1,8 @@
-FROM alpine:3.3
+FROM mhart/alpine-node:6
 MAINTAINER NG2 Webpack Team <cfulnecky@gmail.com>
 
 ENV HOME /home/yeoman
 
-#Install NodeJs
-RUN apk add --no-cache nodejs
 # Update and install necessary dependencies
 RUN apk update && apk add \
     bash \
