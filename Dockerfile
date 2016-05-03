@@ -6,18 +6,16 @@ ENV HOME /home/yeoman
 # Update and install necessary dependencies
 RUN apk update && apk add \
     bash \
+    make \
+    gcc \
+    g++ \
+    python \
     tar \
     git \
     zip \
     curl \
     wget \
     && rm -rf /var/cache/apk/*
-
-RUN apk add --no-cache python && \
-    python -m ensurepip && \
-    rm -r /usr/lib/python*/ensurepip && \
-    pip install --upgrade pip setuptools && \
-    rm -r /root/.cache
 
 RUN mkdir -p /home/yeoman
 RUN addgroup yeoman && \
