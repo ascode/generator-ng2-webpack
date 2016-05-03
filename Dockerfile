@@ -37,6 +37,8 @@ RUN npm install generator-ng2-webpack
 RUN cd $HOME/client && \
     yo ng2-webpack --name="demo" --clientFolder="src"
 
+WORKDIR $HOME/client
+
 # Expose volumes for long term data storage
 VOLUME /client
 
