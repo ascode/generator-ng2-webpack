@@ -18,7 +18,7 @@ RUN apk update && apk add \
 RUN mkdir -p /home/yeoman
 RUN addgroup yeoman && \
     adduser -h $HOME -D -s /bin/bash -G yeoman yeoman
-#COPY yeoman.conf $HOME/config/yeoman.conf
+#COPY package.json $HOME/package.json
 
 
 
@@ -27,7 +27,7 @@ WORKDIR $HOME
 RUN npm install --global yo generator-ng2-webpack node-inspector
 
 USER yeoman
-RUN yo ng2-webpack
+RUN yo ng2-webpack --name="demo" --clientFolder="src"
 
 # Install any dependencies missed by ng2-webpack generate
 RUN npm install
@@ -41,3 +41,5 @@ EXPOSE 5858
 
 # Exposing tcp port
 EXPOSE 9000
+
+CMD ["npm", "start"]

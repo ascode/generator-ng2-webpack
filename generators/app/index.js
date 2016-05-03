@@ -1,5 +1,6 @@
 'use strict';
 var generators = require('yeoman-generator');
+var optionOrPrompt = require('yeoman-option-or-prompt');
 var chalk = require('chalk');
 var yosay = require('yosay');
 var path = require('path');
@@ -10,6 +11,9 @@ var mixinNotifier = require('../../libs/mixinNotifier');
 var mixinInspector = require('../../libs/mixinInspector');
 
 module.exports = generators.Base.extend({
+
+    _optionOrPrompt: optionOrPrompt,
+
     constructor: function() {
         generators.Base.apply(this, arguments);
 
@@ -71,7 +75,7 @@ module.exports = generators.Base.extend({
         var prompts = [{
             type: 'input',
             name: 'name',
-            message: 'What is your the name of your project?',
+            message: 'What is the name of your project?',
             default: this.mixins.dasherize(this.appname)
         }, {
             type: 'input',
@@ -79,7 +83,7 @@ module.exports = generators.Base.extend({
             message: 'In which folder would you like your scripts?',
             default: 'src'
         }];
-        this.prompt(prompts, function(answers) {
+        this._optionOrPrompt(prompts, function(answers) {
             this.answers = answers;
             this.appname = this.answers.appname ? this.mixins.dasherize(this.answers.appname) : this.mixins.dasherize(this.appname);
             // To access answers later use this.answers.someAnswer;

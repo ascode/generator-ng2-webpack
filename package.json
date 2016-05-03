@@ -1,6 +1,6 @@
 {
   "name": "generator-ng2-webpack",
-  "version": "0.2.16",
+  "version": "0.2.17",
   "description": "An opinionated tool for scaffolding an app using angular2 and webpack",
   "homepage": "https://github.com/cmelion/generator-ng2-webpack",
   "repository": {
@@ -63,6 +63,7 @@
     "underscore.string": "^3.2.3",
     "update-notifier": "^0.6.0",
     "yeoman-generator": "^0.22.4",
+    "yeoman-option-or-prompt": "^1.0.2",
     "yosay": "^1.1.0"
   },
   "devDependencies": {
