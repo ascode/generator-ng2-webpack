@@ -37,7 +37,7 @@ RUN npm install generator-ng2-webpack
 #RUN npm install
 
 # Expose volumes for long term data storage
-VOLUME /
+VOLUME /client
 
 # Exposing tcp port
 EXPOSE 9000
