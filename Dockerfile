@@ -17,13 +17,16 @@ RUN adduser --disabled-password --gecos "" yeoman && \
 # Expose the port
 EXPOSE 9000
 
+# Expose volumes for long term data storage
+VOLUME /home/yeoman
+
 # set HOME so 'npm install' doesn't write to /
 ENV HOME /home/yeoman
 
 ENV LANG en_US.UTF-8
 
-RUN mkdir /client && chown yeoman:yeoman /client
-WORKDIR /client
+RUN chown yeoman:yeoman /home/yeoman
+WORKDIR /home/yeoman
 
 ADD set_env.sh /usr/local/sbin/
 RUN chmod +x /usr/local/sbin/set_env.sh
@@ -32,7 +35,8 @@ ENTRYPOINT ["set_env.sh"]
 # Always run as the yeoman user
 USER yeoman
 
-RUN yo ng2-webpack --name="client" --clientFolder="src"
+RUN cd /home/yeoman && \
+    yo ng2-webpack --name="client" --clientFolder="src"
 
 
 CMD ["npm", "run", "docker-server"]
