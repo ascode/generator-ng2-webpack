@@ -1,7 +1,7 @@
 # Yeoman with some generators and prerequisites
 FROM node:4.4.3-slim
 
-MAINTAINER Jakub Głuszecki <jakub.gluszecki@gmail.com>
+MAINTAINER cmelion <charles.fulnecky@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 
