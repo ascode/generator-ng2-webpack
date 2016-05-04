@@ -1,42 +1,38 @@
-FROM mhart/alpine-node:4.4.3
-MAINTAINER NG2 Webpack Team <cfulnecky@gmail.com>
+# Yeoman with some generators and prerequisites
+FROM node:4.4.3-slim
 
-ENV HOME /home/yeoman
+MAINTAINER Jakub Głuszecki <jakub.gluszecki@gmail.com>
 
-# Update and install necessary dependencies
-RUN apk update && apk add \
-    bash \
-    make \
-    gcc \
-    g++ \
-    python \
-    tar \
-    git \
-    zip \
-    curl \
-    wget \
-    && rm -rf /var/cache/apk/*
+ENV DEBIAN_FRONTEND noninteractive
 
-RUN mkdir -p /home/yeoman/client
-RUN addgroup yeoman && \
-    adduser -h $HOME -D -s /bin/bash -G yeoman yeoman
+RUN apt-get -yq update && \
+    apt-get -yq install git net-tools sudo bzip2
 
-#COPY package.json $HOME/package.json
+RUN npm install -g --silent yo@1.7.0 generator-ng2-webpack
 
-# Install ng2-webpack via yo
-WORKDIR $HOME/client
+# Add a yeoman user because grunt doesn't like being root
+RUN adduser --disabled-password --gecos "" yeoman && \
+  echo "yeoman ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-RUN npm install --global yo generator-ng2-webpack
-
-USER yeoman
-
-RUN cd $HOME/client && \
-    yo ng2-webpack --name="client" --clientFolder="src"
-
-# Expose volumes for long term data storage
-VOLUME $HOME/client
-
-# Exposing tcp port
+# Expose the port
 EXPOSE 9000
 
-CMD ["npm", "start"]
+# set HOME so 'npm install' doesn't write to /
+ENV HOME /home/yeoman
+
+ENV LANG en_US.UTF-8
+
+RUN mkdir /client && chown yeoman:yeoman /client
+WORKDIR /client
+
+ADD set_env.sh /usr/local/sbin/
+RUN chmod +x /usr/local/sbin/set_env.sh
+ENTRYPOINT ["set_env.sh"]
+
+# Always run as the yeoman user
+USER yeoman
+
+RUN yo ng2-webpack --name="client" --clientFolder="src"
+
+
+CMD ["npm", "run", "docker-server"]
