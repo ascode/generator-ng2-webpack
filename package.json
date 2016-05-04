@@ -1,6 +1,6 @@
 {
   "name": "generator-ng2-webpack",
-  "version": "0.3.9",
+  "version": "0.3.10",
   "description": "An opinionated tool for scaffolding an app using angular2 and webpack",
   "homepage": "https://github.com/cmelion/generator-ng2-webpack",
   "repository": {
