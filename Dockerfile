@@ -24,23 +24,17 @@ RUN addgroup yeoman && \
 #COPY package.json $HOME/package.json
 
 # Install ng2-webpack via yo
-WORKDIR $HOME
+WORKDIR $HOME/client
 
-RUN npm install --global yo
+RUN npm install --global yo generator-ng2-webpack
 
 USER yeoman
 
-RUN npm install generator-ng2-webpack
-
-
-
 RUN cd $HOME/client && \
-    yo ng2-webpack --name="demo" --clientFolder="src"
-
-WORKDIR $HOME/client
+    yo ng2-webpack --name="client" --clientFolder="src"
 
 # Expose volumes for long term data storage
-VOLUME /client
+VOLUME $HOME/client
 
 # Exposing tcp port
 EXPOSE 9000
