@@ -14,9 +14,6 @@ RUN npm install -g --silent yo@1.7.0 generator-ng2-webpack
 RUN adduser --disabled-password --gecos "" yeoman && \
   echo "yeoman ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-# Expose the port
-EXPOSE 9000
-
 # set HOME so 'npm install' doesn't write to /
 ENV HOME /home/yeoman
 
@@ -34,5 +31,10 @@ USER yeoman
 
 RUN yo ng2-webpack --name="client" --clientFolder="src"
 
+# Set the host file system mount point
+VOLUME ["/home/yeoman/client"]
+
+# Expose the port
+EXPOSE 9000
 
 CMD ["npm", "run", "docker-server"]
