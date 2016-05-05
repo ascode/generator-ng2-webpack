@@ -3,7 +3,7 @@ FROM node:4.4.3-slim
 
 MAINTAINER cmelion <charles.fulnecky@gmail.com>
 
-ENV DEBIAN_FRONTEND noninteractive
+ARG DEBIAN_FRONTEND noninteractive
 
 RUN apt-get -yq update && \
     apt-get -yq install git net-tools sudo bzip2
