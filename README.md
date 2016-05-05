@@ -4,7 +4,7 @@
 
 # generator-ng2-webpack
 
-An opinionated tool ([Yeoman](http://yeoman.io) generator) for scaffolding an app using angular2 and webpack
+An opinionated [BYOBE](http://nobackend.org/2013/11/cross-origin-backend.html) tool ([Yeoman](http://yeoman.io) generator) for scaffolding an app using angular2 and webpack
 
 We like React too!  So if you have some react components you want to use in your Angular 2 apps we will be adding a sub-generator very soon!
 For now check out the about component in the [generated app](//cmelion.github.io/generator-ng2-webpack/about) for a taste of what you can do.
