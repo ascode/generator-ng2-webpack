@@ -33,7 +33,7 @@ USER yeoman
 RUN yo ng2-webpack --name="client" --clientFolder="src"
 
 # Set the host file system mount point
-VOLUME ["/home/yeoman/client"]
+#VOLUME /home/yeoman/client
 
 # Expose the port
 EXPOSE 9000
