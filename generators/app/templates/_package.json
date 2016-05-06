@@ -21,7 +21,7 @@
     "new-service": "yo ng2-webpack:service",
     "postinstall": "npm run webdriver-update && typings install",
     "server": "webpack-dev-server --hot --inline  --progress --port 9000 & wait",
-    "docker-server": "webpack-dev-server --host=0.0.0.0 --hot --inline  --progress --port 80 & wait",
+    "docker-server": "webpack-dev-server --host=0.0.0.0 --hot --inline  --progress --port 8080 & wait",
     "start": "npm run server",
     "test": "karma start",
     "test-watch": "karma start --no-single-run --auto-watch",
