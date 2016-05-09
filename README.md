@@ -208,6 +208,8 @@ It will start a local server using `webpack-dev-server` which will watch, build 
     * While it's mostly personal preference, there are several good reasons for standardized filenames, see [filename conventions](https://github.com/cmelion/generator-ng2-webpack/wiki/I-hate-that-all-the-files-are-named-index.ts,-style.scss-and-template.html!)
     * In a component based architecture almost everything is a component, checkout [what happened to my .controller. ?](https://github.com/cmelion/generator-ng2-webpack/wiki/What-happened-to-my.controller.ts,-etc%3F)
 * [Why should I use a generator?](https://github.com/cmelion/generator-ng2-webpack/wiki/Why-should-I-use-a-generator%3F)
+* How do I run docker commands from the npm tool window?
+    * Install docker run: `npm install -g docker-run`
 
 
 # License
