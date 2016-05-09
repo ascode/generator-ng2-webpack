@@ -61,12 +61,12 @@ For a complete list of available commands and to add tab auto-completion, run th
 which will produce the following output    
 ```
 
-build             docs              new-interface     start
-ci                e2e               new-pipe          test
-clean             e2e-live          new-service       test-watch
-clean-install     lint              postinstall       watch
-clean-start       new-component     predelayed-open   webdriver-start
-delayed-open      new-directive     server            webdriver-update
+build                 docker-open-terminal  e2e-live              new-service           watch
+ci                    docker-server         lint                  postinstall           webdriver-start
+clean                 docker-start          new-component         server                webdriver-update
+clean-install         docker-stop           new-directive         start                 
+clean-start           docs                  new-interface         test                  
+delayed-open          e2e                   new-pipe              test-watch  
  
 ```
 
@@ -210,6 +210,7 @@ It will start a local server using `webpack-dev-server` which will watch, build 
 * [Why should I use a generator?](https://github.com/cmelion/generator-ng2-webpack/wiki/Why-should-I-use-a-generator%3F)
 * How do I run docker commands from the npm tool window?
     * Install docker run: `npm install -g docker-run`
+    * see wiki [Docker Workflow explained](https://github.com/cmelion/generator-ng2-webpack/wiki/Why-Docker%3F)
 
 
 # License
