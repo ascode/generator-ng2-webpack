@@ -36,6 +36,6 @@ RUN yo ng2-webpack --name="client" --clientFolder="src"
 #VOLUME /home/yeoman/client
 
 # Expose the port
-EXPOSE 8080
+EXPOSE 8000 8080 3000 5000 2368 9200 8983
 
 CMD ["npm", "run", "docker-server"]
