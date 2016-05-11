@@ -52,7 +52,7 @@ $ cd my-app
 $ npm start
 ```
 
-go to [http://localhost:9000](http://localhost:9000) in your browser.
+go to [http://localhost:2368](http://localhost:2368) in your browser.
 
 # Table of Contents
 
