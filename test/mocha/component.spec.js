@@ -36,20 +36,20 @@ describe(generatorShortname + ':component', function() {
             var pathdir = clientFolder + '/scripts/dashboard/components/my-dummy/';
 
             var expectedFiles = [
-                pathdir + 'my-dummy.component.ts',
-                pathdir + 'my-dummy.component.html',
-                pathdir + 'my-dummy.component.scss',
-                pathdir + 'my-dummy.component.spec.ts'
+                pathdir + 'index.ts',
+                pathdir + 'template.html',
+                pathdir + 'style.scss',
+                pathdir + 'spec.ts'
             ];
 
             assert.file(expectedFiles);
 
             var expectedContents = [
-                [pathdir + 'my-dummy.component.ts', /export class MyDummyComponent/],
-                [pathdir + 'my-dummy.component.ts', /selector: 'my-dummy'/],
-                [pathdir + 'my-dummy.component.spec.ts', /import {MyDummyComponent} from '\.\/my-dummy.component';/],
-                [pathdir + 'my-dummy.component.spec.ts', /createAsync\(MyDummyComponent\)/],
-                [pathdir + 'my-dummy.component.html', /<div>myDummy<\/div>/]
+                [pathdir + 'index.ts', /export class MyDummyComponent/],
+                [pathdir + 'index.ts', /selector: 'my-dummy'/],
+                [pathdir + 'spec.ts', /import {MyDummyComponent} from '\.\/my-dummy.component';/],
+                [pathdir + 'spec.ts', /createAsync\(MyDummyComponent\)/],
+                [pathdir + 'template.html', /<div>myDummy<\/div>/]
 
             ];
             assert.fileContent(expectedContents);

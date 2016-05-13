@@ -7,7 +7,7 @@ ARG DEBIAN_FRONTEND
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get -yq update && \
-    apt-get -yq install git net-tools sudo bzip2 &&
+    apt-get -yq install git net-tools sudo bzip2 && \
     apt-get -yq install libfontconfig
 
 RUN npm install -g --silent yo@1.7.0 generator-ng2-webpack

@@ -34,64 +34,28 @@ describe(generatorShortname + ':app', function() {
                 '.jsbeautifyrc',
                 '.npmrc',
                 '.travis.yml',
-                '.yo-rc.json',
                 'karma.conf.js',
                 'package.json',
                 'README.md',
-                'spec-bundle.js',
                 'tsconfig.json',
                 'tslint.json',
                 'webpack.config.js',
-                'test/sanity.spec.ts',
-                'tsd.json',
                 'protractor.conf.js',
-                'protractor/browserExtension.js',
-                clientFolder,
-                'fuse/AngularBootstrap.js',
-                'fuse/AngularRenderer.js',
-                'fuse/bootstrap.ts',
-                'fuse/dom_adapter.ts',
-                'fuse/element.ts',
-                'fuse/fuse_location_strategy.ts',
-                'fuse/fuse_polyfills.ts',
-                'fuse/renderer.ts',
-                'fuse/vendor.ts',
-                'fuse/xhr.ts',
-                'fuse/zone.ts',
-                'fuse/zone_patch.ts',
-                'plugins/PostCompilePlugin.js',
-                'typings/fuse/fuse.d.ts'
+                clientFolder
             ];
             assert.file(expectedFiles);
             assert.JSONFileContent('package.json', {
-                name: 'name-x'
+                name: 'app'
             });
-            assert.JSONFileContent('tsconfig.json', {
-                filesGlob: [
-                    clientFolder + '/**/*.ts',
-                    'test/**/*.ts',
-                    'typings/tsd.d.ts',
-                    '!./node_modules/**/*.ts'
-                ]
-            });
-
+            
             var expectedContents = [
-                ['README.md', /# name-x/],
+                ['README.md', /# app/],
                 ['spec-bundle.js', new RegExp('context\\(\'./myclientfolder\',')]
             ];
             assert.fileContent(expectedContents);
 
         });
-
-        it('creates a .yo-rc.json file', function() {
-            var content = {};
-            content[generatorFullname] = {
-                appname: 'name-x',
-                clientFolder: clientFolder
-            };
-            assert.JSONFileContent('.yo-rc.json', content);
-
-        });
+        
     });
 
     describe('clientFolder', function() {

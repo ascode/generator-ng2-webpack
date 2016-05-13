@@ -78,7 +78,7 @@ module.exports = (function makeWebpackConfig() {
         path: root('dist'),
         publicPath: '',
         filename: ENV === 'build' ? 'js/[name].[hash].js' : 'js/[name].js',
-        chunkFilename: ENV === 'build' ? '[id].[hash].chunk.js' : '[id].chunk.js',
+        chunkFilename: ENV === 'build' ? '[id].[hash].chunk.js' : '[id].chunk.js'
     };
 
     /**
@@ -280,9 +280,6 @@ module.exports = (function makeWebpackConfig() {
                 // comments: true,//debug
 
                 beautify: false,//prod
-                // disable mangling because of a bug in angular2 beta.1, beta.2 and beta.3
-                // TODO(mastertinner): enable mangling as soon as angular2 beta.4 is out
-                // mangle: { screw_ie8 : true },//prod
                 mangle: {
                     screw_ie8 : true,
                     except: ['RouterLink'] // needed for uglify RouterLink problem
