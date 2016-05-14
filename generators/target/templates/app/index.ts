@@ -1,7 +1,7 @@
 /// src/app/index.ts
-import {Component} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
-import {FORM_PROVIDERS} from 'angular2/common';
+import {Component} from '@angular/core';
+import {RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
+import {FORM_PROVIDERS} from '@angular/common';
 
 import '../style/app.scss';
 
@@ -24,7 +24,7 @@ import routes from './routes';
 @RouteConfig(routes)
 
 export class App {
-    url: string = 'https://github.com/ocombe/ng2-webpack';
+    url: string = '//github.com/cmelion/generator-ng2-webpack';
 
     constructor(public api: Api) {
     }
