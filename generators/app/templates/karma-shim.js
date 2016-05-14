@@ -16,7 +16,7 @@ require('@angular/core/testing');
  any file that ends with spec.js and get its path. By passing in true
  we say do this recursively
  */
-var appContext = require.context('./src', true, /root\.spec\.ts/);
+var appContext = require.context('./src', true, /root\.?spec\.ts/);
 
 // get all the files, for each file, call the context function
 // that will require the file and load it up here. Context will
@@ -29,4 +29,7 @@ appContext.keys().forEach(appContext);
 var testing = require('@angular/core/testing');
 var browser = require('@angular/platform-browser-dynamic/testing');
 
-testing.setBaseTestProviders(browser.TEST_BROWSER_PLATFORM_PROVIDERS, browser.TEST_BROWSER_APPLICATION_PROVIDERS);
+testing.setBaseTestProviders(
+    browser.TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
+    browser.TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS
+);

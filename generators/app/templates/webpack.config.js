@@ -175,7 +175,7 @@ module.exports = (function makeWebpackConfig() {
             test: /\.(js|ts)$/,
             include: path.resolve('src'),
             loader: 'istanbul-instrumenter-loader',
-            exclude: [/\.spec\.ts$/, /\.e2e\.ts$/, /node_modules/]
+            exclude: [/\.?spec\.ts$/, /\.e2e\.ts$/, /node_modules/]
         });
     }
 
