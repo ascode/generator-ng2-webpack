@@ -6,7 +6,7 @@ var testHelper = require('./testHelper');
 var generatorShortname = testHelper.mixins.getGeneratorShortname(); // mcfly-ng2
 
 describe(generatorShortname + ':pipe', function() {
-    var targetname = 'dashboard';
+    var targetname = 'app';
     var clientFolder = 'client';
     var componentname = 'my dummy';
 
@@ -29,29 +29,21 @@ describe(generatorShortname + ':pipe', function() {
     });
 
     it('creates expected files', function() {
-        var pathdir = clientFolder + '/scripts/dashboard/pipes/my-dummy/';
+        var pathdir = clientFolder + '/app/pipes/my-dummy/';
 
         var expectedFiles = [
-            pathdir + 'my-dummy.pipe.ts',
-            pathdir + 'my-dummy.pipe.spec.ts'
+            pathdir + 'index.ts',
+            pathdir + 'spec.ts'
         ];
 
         assert.file(expectedFiles);
 
         var expectedContents = [
-            [pathdir + 'my-dummy.pipe.ts', /export class MyDummyPipe/],
-            [pathdir + 'my-dummy.pipe.ts', /name: 'myDummy'/],
-            [pathdir + 'my-dummy.pipe.spec.ts', /import {MyDummyPipe} from '\.\/my-dummy.pipe';/]
+            [pathdir + 'index.ts', /export class MyDummyPipe/],
+            [pathdir + 'index.ts', /name: 'myDummy'/],
+            [pathdir + 'spec.ts', /import {MyDummyPipe} from '\.\/index';/]
         ];
         assert.fileContent(expectedContents);
 
-    });
-
-    it('exposes valid client targets and client modules', function() {
-        var configOptions = this.generator.configOptions;
-        var clientModules = configOptions.clientModules;
-        var clientTargets = configOptions.clientTargets;
-        assert.objectContent(clientModules, ['app', 'common', 'dashboard', 'dummy', 'tata', 'toto']);
-        assert.objectContent(clientTargets, ['app', 'tata', 'toto']);
     });
 });

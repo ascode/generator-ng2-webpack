@@ -47,15 +47,9 @@ describe(generatorShortname + ':app', function() {
             assert.JSONFileContent('package.json', {
                 name: 'app'
             });
-            
-            var expectedContents = [
-                ['README.md', /# app/],
-                ['spec-bundle.js', new RegExp('context\\(\'./myclientfolder\',')]
-            ];
-            assert.fileContent(expectedContents);
 
         });
-        
+
     });
 
     describe('clientFolder', function() {

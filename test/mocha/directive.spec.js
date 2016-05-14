@@ -6,7 +6,7 @@ var testHelper = require('./testHelper');
 var generatorShortname = testHelper.mixins.getGeneratorShortname(); // mcfly-ng2
 
 describe(generatorShortname + ':directive', function() {
-    var targetname = 'dashboard';
+    var targetname = 'app';
     var clientFolder = 'client';
     var componentname = 'my dummy';
 
@@ -29,7 +29,7 @@ describe(generatorShortname + ':directive', function() {
     });
 
     it('creates expected files', function() {
-        var pathdir = clientFolder + '/scripts/dashboard/directives/my-dummy/';
+        var pathdir = clientFolder + '/app/directives/my-dummy/';
 
         var expectedFiles = [
             pathdir + 'my-dummy.directive.ts',
@@ -44,13 +44,5 @@ describe(generatorShortname + ':directive', function() {
         ];
         assert.fileContent(expectedContents);
 
-    });
-
-    it('exposes valid client targets and client modules', function() {
-        var configOptions = this.generator.configOptions;
-        var clientModules = configOptions.clientModules;
-        var clientTargets = configOptions.clientTargets;
-        assert.objectContent(clientModules, ['app', 'common', 'dashboard', 'dummy', 'tata', 'toto']);
-        assert.objectContent(clientTargets, ['app', 'tata', 'toto']);
     });
 });

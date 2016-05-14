@@ -27,7 +27,8 @@ var Generator = module.exports = ComponentGenerator.extend({
 
     writing: function() {
         var destinationPath = Generator.__super__.writing.apply(this, arguments);
-
+        /* eslint-disable no-console */
+        console.log(path.join(destinationPath, 'index.ts'));
         this.fs.copyTpl(
             this.templatePath('_pipe.ts'),
             this.destinationPath(path.join(destinationPath, 'index.ts')), {
@@ -39,7 +40,7 @@ var Generator = module.exports = ComponentGenerator.extend({
 
         this.fs.copyTpl(
             this.templatePath('_pipe.spec.ts'),
-            this.destinationPath(path.join(destinationPath, this.pipenameFile + 'spec.ts')), {
+            this.destinationPath(path.join(destinationPath, 'spec.ts')), {
                 pipenameFile: this.pipenameFile,
                 pipename: this.pipename,
                 pipenameClass: this.pipenameClass
