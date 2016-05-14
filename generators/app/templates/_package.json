@@ -24,6 +24,7 @@
     "new-pipe": "yo ng2-webpack:pipe",
     "new-service": "yo ng2-webpack:service",
     "postinstall": "npm run webdriver-update && typings install",
+    "predocker-server":  "npm install",
     "predocker-start": "docker pull cmelion/generator-ng2-webpack:latest",
     "server": "json-server --watch api/db.json",
     "start": "concurrently \"npm run server\" \"npm run client\"",
