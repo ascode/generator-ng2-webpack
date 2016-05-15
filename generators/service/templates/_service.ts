@@ -1,5 +1,5 @@
 /* beautify ignore:start */
-import {Injectable} from 'angular2/core';
+import {Injectable} from '@angular/core';
 /* beautify ignore:end */
 
 @Injectable()

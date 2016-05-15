@@ -1,5 +1,6 @@
 /* beautify ignore:start */
-import {it, injectAsync, beforeEachProviders, TestComponentBuilder} from 'angular2/testing';
+import {it, injectAsync, beforeEachProviders} from '@angular/core/testing';
+import {TestComponentBuilder} from '@angular/compiler/testing';
 import {<%=componentnameClass %>} from './<%=componentname%>';
 /* beautify ignore:end */
 

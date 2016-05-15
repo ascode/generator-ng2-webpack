@@ -1,5 +1,5 @@
 /* beautify ignore:start */
-import {Pipe, PipeTransform} from 'angular2/core';
+import {Pipe, PipeTransform} from '@angular/core';
 /* beautify ignore:end */
 
 @Pipe({ name: '<%=pipename%>' })

@@ -1,5 +1,5 @@
 /* beautify ignore:start */
-import {it, inject, beforeEachProviders} from 'angular2/testing';
+import {it, inject, beforeEachProviders} from '@angular/core/testing';
 import {<%=servicenameClass%>} from './index';
 /* beautify ignore:end */
 

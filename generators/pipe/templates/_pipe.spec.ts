@@ -1,5 +1,5 @@
 /* beautify ignore:start */
-import {it} from 'angular2/testing';
+import {it} from '@angular/core/testing';
 import {<%=pipenameClass %>Pipe} from './index';
 /* beautify ignore:end */
 
