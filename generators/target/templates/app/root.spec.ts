@@ -4,7 +4,6 @@ import {
   describe,
   fdescribe,
   inject,
-  injectAsync,
   beforeEachProviders
 } from '@angular/core/testing';
 
