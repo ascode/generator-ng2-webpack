@@ -1,6 +1,8 @@
 // styles applied on :host are applied on the current component, "app" in this case
 :host {
-  display: block;
+  display: flex;
+  flex-direction:column;
+  height: 100vh;
 }
 
 header {
@@ -18,12 +20,13 @@ main {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   margin-top: 50px;
-  display: block;
+  flex: 1 0 auto;
 }
 
 footer {
   text-align: center;
   font-size: 0.8em;
+  background-color: #2C102B;
 }
 
 .shield {
