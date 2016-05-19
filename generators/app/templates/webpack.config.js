@@ -120,6 +120,7 @@ module.exports = (function makeWebpackConfig() {
                 query: {
                     'ignoreDiagnostics': [
                         2300, // 2300 -> Duplicate identifier
+                        2304, // 2304 -> Cannot find name '__decorate'
                         2306, // 2300 -> Not a Module
                         2339, // 2339 -> Property 'decorate' does not exist on type 'typeof Reflect'
                         2347, // 2347 -> Untyped function calls may not accept type arguments
