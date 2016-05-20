@@ -113,6 +113,11 @@ module.exports = generators.Base.extend({
         //this.fs.write(this.destinationPath('test/.gitignore'), '');
 
         this.fs.copy(
+            this.templatePath('api'),
+            this.destinationPath('api')
+        );
+
+        this.fs.copy(
             this.templatePath('typings'),
             this.destinationPath('typings')
         );
