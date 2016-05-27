@@ -4,7 +4,7 @@ web:
     - ./README.md:/home/yeoman/client/README.md
     - ./package.json:/home/yeoman/client/package.json
     - ./src:/home/yeoman/client/src
-    - ./api:/home/yeoman/client/api
+    - ./json-server:/home/yeoman/client/json-server
   ports:
     - "2368:2368"
     - "3000:3000"
