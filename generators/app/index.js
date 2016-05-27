@@ -113,6 +113,11 @@ module.exports = generators.Base.extend({
         //this.fs.write(this.destinationPath('test/.gitignore'), '');
 
         this.fs.copy(
+            this.templatePath('json-server'),
+            this.destinationPath('json-server')
+        );
+
+        this.fs.copy(
             this.templatePath('typings'),
             this.destinationPath('typings')
         );
@@ -214,6 +219,10 @@ module.exports = generators.Base.extend({
             this.destinationPath('webpack.config.js')
         );
 
+        this.fs.copyTpl(
+            this.templatePath('docker-compose.yml'),
+            this.destinationPath('docker-compose.yml')
+        );
     },
 
     conflicts: function() {
