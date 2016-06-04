@@ -196,7 +196,7 @@ It will start a local server using `webpack-dev-server` which will watch, build 
 
 ## Roadmap
 
-* Mocking with [JSON Server](https://github.com/typicode/json-server)
+* Mocking with [JSON Server](https://github.com/typicode/json-server) - see [working example](https://github.com/cmelion/ng2-webpack-demo-app)
 * [Docker](https://www.docker.com/) integration
 * Support for [Eclipse Che](https://github.com/eclipse/che)
 

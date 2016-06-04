@@ -93,7 +93,7 @@ module.exports = generators.Base.extend({
             this.templatePath('public/img/shield-with-beta.png'),
             this.destinationPath(path.join(this.configOptions.clientFolder, 'public/img/shield-with-beta.png'))
         );
-
+        
         this.fs.copy(
             this.templatePath('app'),
             this.destinationPath(path.join(this.configOptions.clientFolder, 'app'))
