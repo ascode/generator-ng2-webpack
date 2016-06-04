@@ -109,5 +109,9 @@ module.exports = generators.Base.extend({
             this.destinationPath(path.join(this.configOptions.clientFolder, 'style'))
         );
 
+        this.fs.copy(
+            this.templatePath('assert'),
+            this.destinationPath(path.join(this.configOptions.clientFolder, 'assert'))
+        );
     }
 });
