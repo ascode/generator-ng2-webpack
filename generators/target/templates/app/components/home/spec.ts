@@ -10,18 +10,21 @@ import {
 // Load the implementations that should be tested
 import {Home} from './index';
 
-describe('Home', () => {
-  // provide our implementations or mocks to the dependency injector
-  beforeEachProviders(() => [
-    Home
-  ]);
+// Use the assert helper to get a reference to the component, element and fixture
+import {Assert} from './../../../assert';
 
-  it('should log ngOnInit', inject([Home], (home) => {
+describe('Home', () => {
+  // Provide our implementations or mocks to the dependency injector
+  let providers = [];
+  
+  // Set up the helper 
+  let assert = new Assert<Home>(Home, providers);      
+
+  assert.it('should log ngOnInit', (component, element, fixture) => {
     spyOn(console, 'log');
     expect(console.log).not.toHaveBeenCalled();
 
-    home.ngOnInit();
+    component.ngOnInit();
     expect(console.log).toHaveBeenCalledWith('Hello Home');
-  }));
-
+  });
 });
