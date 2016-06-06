@@ -27,7 +27,7 @@
     "postinstall": "npm run webdriver-update && typings install",
     "predocker-server": "npm install --quiet",
     "predocker-start": "docker pull cmelion/generator-ng2-webpack:latest",
-    "server": "json-server --watch --quiet json-server/db.json",
+    "server": "json-server --watch json-server/db.json",
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "test": "karma start",
     "test-watch": "karma start --no-single-run --auto-watch",
