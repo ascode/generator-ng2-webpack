@@ -33,7 +33,6 @@
     "test-watch": "karma start --no-single-run --auto-watch",
     "watch": "webpack --watch --progress --profile",
     "webdriver-start": "webdriver-manager start",
-    "webpack-hot-middleware": "^2.10.0",
     "webdriver-update": "webdriver-manager update"
   },
   "dependencies": {
