@@ -211,6 +211,7 @@ It will start a local server using `webpack-dev-server` which will watch, build 
 * How do I run docker commands from the npm tool window?
     * Install docker run: `npm install -g docker-run`
     * see wiki [Docker Workflow explained](https://github.com/cmelion/generator-ng2-webpack/wiki/Why-Docker%3F)
+* How do I [import third party/vendor libs](https://github.com/cmelion/generator-ng2-webpack/wiki/Importing-vendor-libs)?
 
 
 # License
