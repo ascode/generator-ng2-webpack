@@ -65,7 +65,7 @@ var Generator = module.exports = ComponentGenerator.extend({
                         componentnameFile: this.componentnameFile,
                         componentname: this.componentname,
                         componentnameClass: this.componentnameClass,
-                        assertPath: path.relative(path.join(destinationPath, 'spec.ts'), path.join('src','app', 'assert')).replace(/\\/g,"/")                        
+                        assertPath: path.relative(path.join(destinationPath, 'spec.ts'), path.join('src','app', 'assert')).replace(/\\/g,'/')
                     }
                 );
 
