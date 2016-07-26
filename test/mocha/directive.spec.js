@@ -2,8 +2,8 @@
 var assert = require('yeoman-assert');
 //var helpers = require('yeoman-test');
 var testHelper = require('./testHelper');
-//var generatorFullname = testHelper.mixins.getGeneratorFullname(); // generator-mcfly-ng2
-var generatorShortname = testHelper.mixins.getGeneratorShortname(); // mcfly-ng2
+//var generatorFullname = testHelper.mixins.getGeneratorFullname(); // generator-ng2-webpack
+var generatorShortname = testHelper.mixins.getGeneratorShortname(); // ng2-webpack
 
 describe(generatorShortname + ':directive', function() {
     var targetname = 'app';

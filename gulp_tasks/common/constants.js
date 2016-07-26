@@ -1,7 +1,7 @@
 'use strict';
 
 var getRepository = function() {
-    var repository = 'https://github.com/mcfly-io/generator-mcfly-ng2';
+    var repository = 'https://github.com/cmelion/generator-ng2-webpack';
     try {
         var helper = require('./helper');
         var packageJson = helper.readJsonFile('./package.json');

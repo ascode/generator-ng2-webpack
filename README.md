@@ -14,7 +14,7 @@ For now check out the about component in the [generated app](//cmelion.github.io
 This generator was inspired by: 
 * https://github.com/preboot/angular-webpack
 * https://github.com/AngularClass/angular2-webpack-starter
-* https://github.com/mcfly-io/generator-mcfly-ng2
+* https://github.com/mcfly-io/generator-ng2-webpack
 * http://www.syntaxsuccess.com/viewarticle/integrating-react-with-angular-2.0
 
 <a href="//cmelion.github.io/generator-ng2-webpack/" rel="Demo App">![Demo App](http://www.masterbrandlk.com/smsdemo/image/demo_icon.jpg)</a>
