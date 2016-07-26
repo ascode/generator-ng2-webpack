@@ -1,7 +1,7 @@
 'use strict';
-var path = require('path');
-var assert = require('yeoman-assert');
-var expect = require('chai').expect;
+//var path = require('path');
+//var assert = require('yeoman-assert');
+//var expect = require('chai').expect;
 //var helpers = require('yeoman-test');
 var testHelper = require('./testHelper');
 
@@ -9,9 +9,8 @@ var testHelper = require('./testHelper');
 var generatorShortname = testHelper.mixins.getGeneratorShortname(); // mcfly-ng2
 
 describe(generatorShortname + ':target', function() {
-    
-    describe('with invalid target', function() {
 
+    describe('with invalid target', function() {
 
     });
 

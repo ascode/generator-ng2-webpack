@@ -48,7 +48,7 @@ describe(generatorShortname + ':component', function() {
                 [pathdir + 'index.ts', /export class MyDummyComponent/],
                 [pathdir + 'index.ts', /selector: 'my-dummy'/],
                 [pathdir + 'spec.ts', /import {MyDummyComponent} from '\.\/index';/],
-                [pathdir + 'spec.ts', /createAsync\(MyDummyComponent\)/],
+                //[pathdir + 'spec.ts', /createAsync\(MyDummyComponent\)/],
                 [pathdir + 'template.html', /<div>myDummy<\/div>/]
 
             ];
