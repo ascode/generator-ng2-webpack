@@ -95,7 +95,7 @@ $ cd my-app
 $ npm start
 ```
 
-go to [http://localhost:9000](http://localhost:9000) in your browser.
+go to [http://localhost:2368](http://localhost:2368) in your browser.
 
 # Table of Contents
 
@@ -178,7 +178,7 @@ or (if you want to automatically open a browser window)
 ```bash
 npm delayed-open
 ```
-It will start a local server using `webpack-dev-server` which will watch, build (in-memory), and reload for you. The port will be displayed to you as `http://localhost:9000`.
+It will start a local server using `webpack-dev-server` which will watch, build (in-memory), and reload for you. The port will be displayed to you as `http://localhost:2368`.
 
 ## Developing
 
