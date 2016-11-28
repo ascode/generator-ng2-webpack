@@ -1,3 +1,5 @@
+Now that Angular2 has moved to Webpack, the need for this generator is less of a priority for me. I'm working on a new one based on [Redux-Observable](https://github.com/redux-observable/redux-observable) that will support either Angular2 or React as well as a seamless mixture of the two.  Work on this repo will be limited to bug-fixes and pull-requests.
+
 [![NPM](https://nodei.co/npm/generator-ng2-webpack.png?downloads=true)](https://npmjs.org/package/generator-ng2-webpack)
 
 [![Join the chat at https://gitter.im/cmelion/generator-ng2-webpack](https://badges.gitter.im/cmelion/generator-ng2-webpack.svg)](https://gitter.im/cmelion/generator-ng2-webpack?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
